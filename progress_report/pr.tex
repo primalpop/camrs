@@ -1,25 +1,73 @@
-\documentclass[a4paper,11pt]{article}
+% Use the following line _only_ if you're still using LaTeX 2.09.
+%\documentstyle[icml2011,epsf,natbib]{article}
+% If you rely on Latex2e packages, like most moden people use this:
+\documentclass{article}
 
-\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% For figures
+\usepackage{graphicx} % more modern
+%\usepackage{epsfig} % less modern
+\usepackage{subfigure} 
 
-\usepackage{graphics}
-\usepackage{graphicx}
+% For citations
+\usepackage{natbib}
 
-%Setup hyperref package, and colours for links
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% As of 2010, we use the hyperref package to produce hyperlinks in the
+% resulting PDF.  If this breaks your system, please commend out the
+% following usepackage line and replace \usepackage{icml2011} with
+% \usepackage[nohyperref]{icml2011} above.
 \usepackage{hyperref}
 
-\begin{document}
+% Packages hyperref and algorithmic misbehave sometimes.  We can fix
+% this with the following command.
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
 
-%--------------------TITLE-------------
+% Employ the following version of the ``usepackage'' statement for
+% submitting the draft version of the paper for review.  This will set
+% the note in the first column to ``Under review.  Do not distribute.''
+\usepackage[accepted]{icml2011} 
+% Employ this version of the ``usepackage'' statement after the paper has
+% been accepted, when creating the final version.  This will set the
+% note in the first column to ``Appearing in''
+% \usepackage[accepted]{icml2011}
 
-\title{Context Aware Movie Recommender Systems}
-\author{Primal Pappachan, Arnav Joshi \\ 
-\texttt{\{primal1, arnavj1\}@umbc.edu}}
-\date{\today}
-\maketitle
 
-%--------------------SECTIONS----------------------------------
+% The \icmltitle you define below is probably too long as a header.
+% Therefore, a short form for the running title is supplied here:
+\icmltitlerunning{Context Aware Movie Recommender Systems}
 
+\begin{document} 
+
+\twocolumn[
+\icmltitle{CAMR - Context Aware Movie Recommender Systems}
+
+% It is OKAY to include author information, even for blind
+% submissions: the style file will automatically remove it for you
+% unless you've provided the [accepted] option to the icml2011
+% package.
+\icmlauthor{Primal Pappachan}{primal1@umbc.edu}
+ %\icmladdress{Your Fantastic Institute,
+%            314159 Pi St., Palo Alto, CA 94306 USA}
+\icmlauthor{Arnav Joshi}{arnavj1@umbc.edu}
+%\icmladdress{Their Fantastic Institute,
+%            27182 Exp St., Toronto, ON M6H 2T1 CANADA}
+
+% You may provide any keywords that you 
+% find helpful for describing your paper; these are used to populate 
+% the "keywords" metadata in the PDF but will not be shown in the document
+\icmlkeywords{recommender systems, machine learning}
+
+\vskip 0.3in
+]
+
+\begin{abstract} 
+ICML 2011 full paper submissions are due February 1, 2011. Reviewing will
+be blind to the identities of the authors, and therefore identifying
+information must not appear in any way in papers submitted for review. Submissions must be in PDF, 8 page length limit.
+\end{abstract} 
 
 \section{Introduction}
 
@@ -32,17 +80,7 @@
 
 \section{Conclusions}
 
-\begin{thebibliography}{99}
-\bibitem{tm} \textit{Learning Topic Models---Going beyond SVD}. Arora, Saneev, Rong Ge, and Ankur Moitra. In FOCS 2012.
-\bibitem{dred} \textit{Online methods for multi-domain learning and adaptation}. Dredze, Mark and Crammer, Koby. In
-EMNLP, 2008.
-\bibitem{nmf} \textit{Computing a nonnegative matrix factorization--provably}. Sanjeev Arora, Rong Ge, Ravi Kannan, Ankur Moitra. Proceedings of the 44th symposium on Theory of Computing. ACM, 2012.  
-\bibitem{blei} \textit{Review article on Probabilistic topic models}. David m. Blei  
-\end{thebibliography}
+\bibliography{pr_ref}
+\bibliographystyle{icml2011}
 
-
-
-\pagebreak
-
-
-\end{document}
+\end{document} 
