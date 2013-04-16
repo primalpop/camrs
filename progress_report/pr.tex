@@ -64,14 +64,14 @@
 ]
 
 \begin{abstract} 
-ICML 2011 full paper submissions are due February 1, 2011. Reviewing will
-be blind to the identities of the authors, and therefore identifying
-information must not appear in any way in papers submitted for review. Submissions must be in PDF, 8 page length limit.
+We propose a context aware movie recommendation system which computes movie suggestions based on models and predictions 
+from user preferences, and incorporate available contextual information into the recommendation process. 
 \end{abstract} 
 
 \section{Introduction}
-
-
+The task of recommender systems is to turn data on users and their preferences into predictions of possible future likes and interests[4]. A rating function in a recommendation system is one which tries to estimate the rating for the new item (here, the movie choice) based on the user’s profile i.e. previous preferences. In CAMRS we hope to gain additional insight on user preferences by taking contextual information into consideration as explicit categories of data, such as the time, location and social situation(with a companion or not). The rating function r can thus be defined as: 
+r: User x Item x Context = Rating [2]
+The recommendation given by CAMRS is on the basis of a function of user, item and previous ratings.  The recommendation will be on a Likert scale (scale of 5-10 or a Boolean variable “Like/Dislike”). Ratings are measured on a 5-10 scale and detection of movie relevance done on the basis of rating information. Following are examples of some of the contextual attributes and their values in the dataset.
 \section{Related Work}
 
 \section{Proposed method}
