@@ -1,0 +1,53 @@
+introduction + related work - Arnav
+===========================
+2 pages
+
+Proposal + Database for contextual personalization 
+
+- Collaborative Filtering
+- Content based Filtering 
+
+* Post Filtering based on contextual attributes
+
+* Importance of context 
+* 
+
+Related Work - Arnav
+============
+
+From summary of survey of recommender systems
+
+method - 
+=======
+
+Programming collective intelligence - 2nd chapter(code) + add more movies and users - split it into training and testing and do evaluation. Table of accuracies.
+
+Finishes simple approach/related work on recommender systems - Arnav
+
+------------------------------------------------------------
+
+LDoS - Comoda - Histograms/Graphs from the paper analysing the dataset - Writing - Arnav, Primal - graphs
+
+--------------------------------------------------------------
+
+Run crab, taste on the movielens dataset - Arnav
+
+---------------------------------------------------------
+
+chi-square feature selection using scikits-learn - Primal
+
+ experiments - Primal
+
+- pandas + scikits learn + different maching learning algorithms
+
+http://manishamde.github.io/blog/2013/03/07/pandas-and-python-top-10/
+
+ http://blog.kaggle.com/2013/02/25/5-lessons-learned-for-the-event-recommendation-challenge/
+
+Compare contrast different algorithms in scikits learn - User-based/Item-based 
+
+ conclusions - tbd
+
+ plan of activities - correlation not done
+
+ Appendix of two table of activities 

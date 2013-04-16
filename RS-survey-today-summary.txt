@@ -1,0 +1,194 @@
+The task of recommender systems is to turn data on users and their preferences
+into predictions of users’ possible future likes and interests. 
+
+
+For example, how best to measure user similarity and assess its uncertainty?
+How to aggregate divergent opinions from various users? How to handle users for whom
+little information is available? Should all data be trusted equally or can one detect reckless
+or intentionally misleading opinions?
+
+Challenges of RS
+
+	Data Sparsity
+	Scalability
+	Cold start
+	Diversity vs accuracy
+	Evaluation
+
+Accuracy Metrics
+################
+
+a)
+Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE), are used to measure the closeness of predicted ratings
+to the true ratings. Lower MAE and RMSE correspond to higher prediction accuracy.
+b)
+Rating and Ranking Correlations. Another way to evaluate the prediction accuracy is to
+calculate the correlation between the predicted and the true ratings. There are three well-
+known correlation measures, namely the Pearson product-moment correlation [95], the
+Spearman [96] correlation and Kendall’s Tau [97].
+c)
+Since real users are usually concerned only with the top part of the recommendation
+list, a more practical approach is to consider the number of a user’s relevant objects ranked
+in the top-L places. Precision and recall are the most popular metrics based on this. For
+a target user i, precision and recall of recommendation, Pi (L) and Ri (L), are defined as
+Pi (L) = di (L) / L
+Ri (L) = di (L) / Di
+d)
+Since users have limited patience on inspecting individual objects in the recommended
+lists, user satisfaction is best measured by taking into account the position of each relevant
+object and assign weights to them accordingly. 
+Half-life Utility.
+Discounted Cumulative Gain. 
+Rank-biased Precision. 
+e) Diversity. Diversity in recommender systems refers to how different the recommended
+objects are with respect to each other.
+Inter-user diversity -  Hamming distance
+Intra-user diversity
+- Novelty and Surprisal. 
+f) Coverage
+Coverage measures the percentage of objects that an algorithm is able to recommend
+to users in the system.
+
+Similarity Measures - Page 23(Diagram)
+###################
+
+User Similarity
+
+Item Similarity
+
+- Slope One Predictor
+It subtracts the average ratings of two items to measure
+how much more, on average, one item is liked than another. This difference is used to
+predict another user’s rating of one of these two items, given his rating of the other. 
+
+Similarity Measures for users and items
+
+- Pearson Coefficient
+- Structural Similarity - Interesting but tough concept based on network structure. User - user space and object-object space
+- Using external information
+* Attributes
+ The similarity between two users (objects) is obtained by calculating the correlation of their
+corresponding attributes vectors.
+the assumption that two users are similar when they have many common features.
+* Contents
+ Object similarity can hence be calculated based on the content comparison of the given objects. 
+The recommendation problem hence becomes a search for objects whose content is most similar
+to the content of objects already preferred by the target user. The classical method to
+weigh content is TF-IDF (term frequency - inverse document frequency) [138], which is a
+weighing metric often used in information retrieval and text mining. 
+* Tags
+ With the tagging information, algorithms
+can be easily designed to calculate user similarity and object similarity by considering
+tag vectors in user and object space, respectively.
+
+
+Dimesionality Reduction - Page 32
+#########################
+*Latent Variables*
+Most techniques of dimensionality reduction in-
+volve feature extraction which makes use of hidden variables, or so called latent variables,
+to describe the underlying causes of co-occurrence data. In the context of movie selection,
+potential viewers may consider genres such as action, romance or comendy features in a
+movie, which consititute the latent variables.
+
+If K hidden variables are used, the latent vectors are K-dimensional
+and dimensionality reduction is achieved if K(N +M ) < N M , since the number of relevant
+variables is reduced. 
+
+Singular Value Decomposition(LSA Technique)
+============================
+Dimensionality reduction is achieved by introducing K hidden variables which cate-
+gorize tastes of users and attributes of objects. The original R is approximated as the
+product of two matrices
+R ≈ WV
+where W and V are respectively matrices with dimension N ×K and K ×M . They contain
+the taste information for users and content information for objects, respectively, expressing
+them in terms of K hidden variables.
+
+This approach is also known as matrix
+factorization (MF) as R is factorized into a product of matrices.
+
+Bayesian Clustering Page 37
+============================
+
+For the purpose of personalized recommendation, we describe a two-sided clustering
+[171, 177] which is easy to implement.
+
+Probabilistic Latent Semantic Analysis (pLSA) Page 38
+
+pLSA models the relations between users and objects
+through the implicit overlap of genres, as compared to the two-sided Bayesian clustering
+where each user and object belong to a single specific category. In pLSA, the co-occurrence
+probability P (i, α) of user i and object α is expressed using the conditional probability given
+a hidden variable k
+
+Latent Dirchilet Allocation(LDA)
+================================
+LDA assumes that priors that have the form of the Dirichlet
+distribution. LDA was applied to predict review scores based on the content of reviews
+[187] and to uncover implicit community structures in a social network [188]. It can be
+also extended to include general meta-data of users and objects 
+
+
+Diffusion based methods
+
+by analyzing the directed network of links among web pages, one could aim to obtain
+recommendations using a network representation of the input data with user preferences.
+The algorithms presented in this section are all based on specific transformations (projec-
+tions) of the input data to object-object networks. Personalized recommendations for an
+individual user are then obtained by using this user’s past preferences as “sources” in a
+given network and propagating them to yet unevaluated objects.
+
+
+Social Filtering
+################
+
+two basic ways social filtering are employed in recommendation: by
+quantifying and utilizing trust relationships between users and by using the opinion “taste
+mates” to select the content to be recommended.
+
+Social Influences on Recommendations
+===================================
+
+social recommendations, whose effects
+can be roughly divided into two classes: one is on users’ prior expectations, leading to the
+increase of sales; another is on users’ posterior evaluations, resulting in the enhancement
+of the user loyalty.
+
+- Trust-Aware Recommender Algorithms
+ The use of reputation in recommendation is further supported by the evidence that trust correlates with user
+similarity [244], meaning that by introducing trust we are unlikely to conflict with users’
+interests and preferences. 
+
+- Adaptive Social Recommendation Models
+Build a network of users
+
+ In this model, users either “approve” or “disapprove” the consumed items. Each user i has S sources (i.e., S other
+users from whom i receives news) and thus the system can be described by a directed
+network with a constrained node in-degree S. When a news is approved by user i, it is
+added to the recommendation lists to all i’s followers
+
+Meta Approaches
+##############
+
+Tag-Aware Systems
+
+- Topic Models
+- Network Aware
+- Tensor 
+
+Time-sensitive approaches
+
+how to automatically
+filter out the irrelevant information, receive timely news and perform immediate yet appro-
+priate response?
+
+Based on decay functions
+
+Challenges
+##########
+
+- Crown Avoidance
+- Over specialization
+
+

@@ -68,7 +68,6 @@ def sim_pearson(prefs, person1, person2):
 # Number of results and similarity function are optional params.
 def top_matches(prefs, person, n=5, similarity_measure=sim_pearson):
 	scores = [(similarity_measure(prefs,person,person2),person2) for person2 in prefs if person2 != person]	
-
 	scores.sort()
 	scores.reverse()
 	return scores[0:n]
