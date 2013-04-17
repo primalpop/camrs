@@ -86,9 +86,11 @@ Content based filtering methods provide recommendations by comparing representat
 
 \subsection{Post Filtering based on contextual attributes}
 CAMRS generates recommendations based on contextual post-filtering. Post-filtering is a type of neighborhood-based algorithm, where a subset of users is chosen based on their similarity to the active user (the context is initially ignored). The resulting set of recommendations is adjusted (contextualized) for each user using the contextual information. The algorithm can be summarized in the following steps:
-1.	Similarity between users is measured as the Pearson correlation between their ratings vectors.
-2.	Select n users that have the highest similarity with the active user.
-3. Compute a prediction from a weighted combination of the selected neighbors’ ratings.
+\begin{enumerate}
+ \item Similarity between users is measured as the Pearson correlation between their ratings vectors.
+ \item Select n users that have the highest similarity with the active user.
+ \item Compute a prediction from a weighted combination of the selected neighbors’ ratings.
+\end{enumerate}
 
 \section{Related Work}
 Melville et al. [7] incorporated both content based and collaborative filtering methods for recommender systems. Their approach uses a content-based predictor to enhance existing user data, and then provide personalized suggestions through collaborative filtering.
