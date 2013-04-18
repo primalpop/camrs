@@ -47,3 +47,11 @@ Compare contrast different algorithms in scikits learn - User-based/Item-based
  plan of activities - correlation not done
 
  Appendix of two table of activities 
+
+
+ Replace missing values
+ Normalize
+ Create dictionaries
+
+ Precision/recall - Precision: Were the recommended(predicted) movies and ratings similar to the higher rated movies by user
+ 					Recall: What ratio of recommended movies were actually returned by the recommendation systems.
