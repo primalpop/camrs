@@ -167,11 +167,29 @@ Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This 
 Firstly the LDOS-CoMoDa dataset was converted into csv format to make it easy for parsing. The dataset is read and stored in pandas dataframe object replacing all the missing values(-1) using the mean of the available values.
 
 Two seperate dictionaries were used for storing users and items respectively. The structure of these dictionaries are given below.
-\begin{verbatim}
-users = {userid: {itemid: rating, age,sex,city,country, c1, c2, ................, c12}}
-items = {itemid: {director, a1, a2, a3, g1, g2, g3, budget, language, country}}
-\end{verbatim}
 
+users = 
+	{userid: 
+		{itemid:  
+			rating, 
+			age,
+			sex,
+			city,
+			country, 
+			c1,
+			.
+			.
+			c12}}
+
+items = 
+	{itemid: 
+		{director, 
+		a1..a3,
+		g1..g3, 
+		budget, 
+		language, 
+		country}}
+		
 $c_{i}$ denote contextual attributes. For determing how similar people are in their movie ratings, a similarity score was computed by comparing each user with another user. Euclidean distance was the first similarity score that we implemented. This was done by taking items users have in common and computing the euclidean distance between ratings given by users to these common items. The result obtained was inverted after adding 1(so as to avoid division by zero). Therefore higher values meant people are more similar than people with lower values. 
 
 The closest matches to an user were found out by comparing each user with every user and ranking the similarity scores in descending order. By limiting the number of results thus obtained, a list of top 5 similar users to a specific user can be obtained.
@@ -230,27 +248,24 @@ The CAMR system demonstrates the usage of contextual information as a relevant s
 \subsection{Before Midterm}
 \begin{enumerate}
 \item Survey of recommender system techniques such as collaborative filtering, Content-based systems  as well as possibility of using DBpedia to boost  the quality of recommendations\cite{ostuni2012cinemappy} and postfiltering of data based on various contextual information
-\item Selection of tools and libraries to be used such as 
-scikits learn, pandas, statsmodes and pylab.
+\item Selection of tools and libraries to be used such as scikits learn, pandas, statsmodes and pylab.
 \item Reading and storing the data in a data model for analysis as well as computations.
-\item Identifying important features by measuring 
-correlation among features and possibly visualize 
-to identify positive and negative correlations
-\item Use chi-square feature selection for  selecting 
-predictive features.
+\item Identifying important features by measuring correlation among features and possibly visualize to identify positive and negative correlations
+\item Use chi-square feature selection for  selecting predictive features.
 \end{enumerate}
 
+\subsection{Dataset Analysis}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ratingsperuser.png}
+\includegraphics[height=2.5in, width=4in]{ratingsperuser.png}
 \caption{Ratings per user}
 \label{ruser}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ratungspermovie.png}
+\includegraphics[height=2.5in, width=4in]{ratungspermovie.png}
 \caption{Ratings per item}
 \label{ritem}
 \end{figure}
