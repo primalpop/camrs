@@ -139,7 +139,12 @@ The second step involves establishing a correlation among the contextual attribu
 \subsection{Filtering of recommendations based on relevant context attributes}
 In this stage, the model will generate a recommendation of movies for a particular test user instance. A single test instance would be a user profile, for which certain movie ratings that were present are removed. Using a precision-recall method, the predicted movie recommendations along with their corresponding ratings will be compared with this removed ratings for calculating the accuracy of predictions.
 
+
+
 \section{Experiments}
+
+
+
 \begin{table}
 	\caption{LDOS - CoMoDa dataset statistic}
 	\centering    
@@ -159,6 +164,38 @@ In this stage, the model will generate a recommendation of movies for a particul
 \end{table}
 
 \section{Conclusions}
+
+
+\pagebreak
+
+\section{Appendix}
+
+\subsection{Plan of activities}
+
+\begin{enumerate}
+\item Identify predictive features that is which of user attributes, movie attributes and context attributes are strongly correlated with labels
+\item Understand univariate feature selection and use it for feature selection/dimensionality reduction on the data set to improve reccommender's predicted ratings or to boost their performance on very high-dimensional datasets
+\item Implement post-filtering based on the context attributes selected from previous two steps. 
+\item Comparison of predicted ratings accuracies by filtering based on user, item and context based attributes. 
+\item Learn to use the python shelve model and try to use persistent data structures for storing the data model so that once it is trained, it can be reused any number of times
+\end{enumerate}
+
+\subsection{Before Midterm}
+\begin{itemize}
+\item Survey of recommender system techniques such 
+as collaborative filtering, Content-based systems 
+as well as possibility of using DBpedia to boost 
+the quality of recommendations[6] and postfiltering of data based on various contextual 
+information
+\item Selection of tools and libraries to be used such as 
+scikits learn, pandas, statsmodes and pylab.
+\item Reading and storing the data in a data model for analysis as well as computations.
+\item Identifying important features by measuring 
+correlation among features and possibly visualize 
+to identify positive and negative correlations
+\item Use chi-square feature selection for  selecting 
+predictive features.
+\end{itemize}
 
 \bibliography{pr_ref}
 \bibliographystyle{icml2011}
