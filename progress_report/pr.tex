@@ -64,12 +64,12 @@
 ]
 
 \section{Introduction}
-The task of recommender systems is to turn data on users and their preferences into predictions of possible future likes and interests \cite{adomavicius2011context}.  The majority of existing approaches to recommender systems focuses on recommending the most relevant items to individual users. However, they do not take into consideration any contextual information, such as time, place and the company of other people (in use cases such as movies). In other words, traditional recommender systems deal with applications having only two types of entities, users and items, and do not put them into a context when providing recommendations. 
+The task of recommender systems is to turn data of users and their preferences into predictions of possible future likes and interests \cite{adomavicius2011context}.  The majority of existing approaches to recommender systems focuses on recommending the most relevant items to individual users. However, they do not take into consideration any contextual information, such as time, place and the company of other people (in use cases such as movies). In other words, traditional recommender systems deal with applications having only two types of entities, users and items, and do not put them into a context when providing recommendations. 
 Context information is any information about the situation, circumstances and user state when a user is consuming the content item. Context can be the time of day, weather, social situation, user’s mood etc.\cite{segaran2008programming} However, the relationship between context and user decision making is very complex and difficult to model. 
-Context-aware recommender systems help users and their desired content in a reasonable time, by exploiting the pieces of information that describe the situation in which users will consume the items. CAMRS models this approach by providing the recommendation on the basis of a function of user, item, previous ratings, as well as the context information provided of the user.
+Context-aware recommender systems help users and their desired content in a reasonable time, by exploiting the pieces of information that describe the situation in which users will consume the items. CAMRS models this approach by providing the recommendation on the basis of a function of user, item, previous ratings, as well as the context information provided by the user.
 
 \subsection{Importance of context} 
-The inclusion of the contextual information into the recommendation process presents opportunities for richer and more diverse interactions between the end-users and recommender systems. With the help of user's context, CAMRS will not only incorporate the user's profile of previous movies he has watched, but also include domain-dependent context modeling, which will help give better recommendation on the selection of movies.  Adapting the item choice based on the user's context can help give us better ratings for each movie recommendation.
+The inclusion of the contextual information into the recommendation process presents opportunities for richer and more diverse interactions between the end-users and recommender systems. With the help of user's context, CAMRS will not only incorporate the user's profile of previous movies he has watched, but also include domain-dependent context modeling, which will help give better recommendation on the selection of movies.  Adapting the item choice based on the user's context can help give better ratings for each movie recommendation.
 
 \subsection{Collaborative Filtering}
 Collaborative filtering systems gather item ratings as a form of user feedback for items in a given domain and exploit similarities and differences among profiles of several users in determining how to recommend an item. In movie recommendation, users provide ratings for the movies they have watched. 
@@ -85,11 +85,12 @@ The recommendation will be on a Likert scale (scale of 1-5) and detection of mov
 %Content based filtering methods provide recommendations by comparing representations of content contained %in an item to representations of content that interests the user.
 
 \subsection{Post Filtering based on contextual attributes}
-CAMRS generates recommendations based on contextual post-filtering. Post-filtering is a type of neighborhood-based algorithm, where a subset of users is chosen based on their similarity to the active user (the context is initially ignored). The resulting set of recommendations is adjusted (contextualized) for each user using the contextual information. The algorithm can be summarized in the following steps:
+CAMRS generates recommendations based on contextual post-filtering. Post-filtering is a type of neighborhood-based algorithm, where a subset of users is chosen based on their similarity to the active user (the context is initially ignored). The resulting set of recommendations is adjusted (contextualized) for each user using the contextual information. The main steps in the algorithm are as follows:
 \begin{enumerate}
- \item Similarity between users is measured as the Pearson correlation between their ratings vectors.
- \item Select n users that have the highest similarity with the active user.
- \item Compute a prediction from a weighted combination of the selected neighbors ratings.
+ \item Similarity between a given user and users is computed based on the Pearson correlation/Euclidean distance between ratings of common items.
+ \item Select n(usually 10 or 20) users that have the highest similarity with the active user.
+ \item Compute a prediction from a weighted combination of the selected user ratings.
+ \item Filter the selected items based on the context of the given user in similarity with that of the context associated with that item. 
 \end{enumerate}
 
 \section{Related Work}
@@ -139,11 +140,16 @@ The second step involves establishing a correlation among the contextual attribu
 \subsection{Filtering of recommendations based on relevant context attributes}
 In this stage, the model will generate a recommendation of movies for a particular test user instance. A single test instance would be a user profile, for which certain movie ratings that were present are removed. Using a precision-recall method, the predicted movie recommendations along with their corresponding ratings will be compared with this removed ratings for calculating the accuracy of predictions.
 
+\subsection{Evaluation}
+The performance of the system will be evaluated based on the accuracy metrics such as Mean Absolute  Error (MAE), Root Mean Squared Error (RMSE). Further, the relevancy of recommendations to the user will be evaluated 
+based on Precision/Recall measures.
 
 
-\section{Experiments}
+\section{Experiments and Conclusions}
 
+\subsection{Analysis of Dataset}
 
+Table 2 contains metadata about the LDOS-CoMoDa dataset. The number of ratings per user and per item have also been analyzed and are plotted in the graphs below.
 
 \begin{table}
 	\caption{LDOS - CoMoDa dataset statistic}
@@ -163,8 +169,38 @@ In this stage, the model will generate a recommendation of movies for a particul
     \label{ldos}
 \end{table}
 
-\section{Conclusions}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{ratingsperuser.png}
+\caption{Ratings per user}
+\label{ruser}
+\end{figure}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{ratungspermovie.png}
+\caption{Ratings per item}
+\label{ritem}
+\end{figure}
+
+
+\subsection{Implementation}
+
+Firstly the LDOS-CoMoDa dataset was converted into csv format to make it easy for parsing. The dataset is read and stored in pandas dataframe object replacing all the missing values(-1) using the mean of the available values.
+
+Two seperate dictionaries were used for storing users and items respectively. The structure of these dictionaries are given below.
+\begin{verbatim}
+users = {userid: {itemid: rating, age,sex,city,country, c1, c2, ................, c12}}
+items = {itemid: {director, a1, a2, a3, g1, g2, g3, budget, language, country}}
+\end{verbatim}
+
+$c_{i}$ denote contextual attributes. For determing how similar people are in their movie ratings, a similarity score was computed by comparing each user with another user. Euclidean distance was the first similarity score that we implemented. This was done by taking items users have in common and computing the euclidean distance between ratings given by users to these common items. The result obtained was inverted after adding 1(so as to avoid division by zero). Therefore higher values meant people are more similar than people with lower values. 
+
+The closest matches to an user were found out by comparing each user with every user and ranking the similarity scores in descending order. By limiting the number of results thus obtained, a list of top 5 similar users to a specific user can be obtained.
+
+We plan to also user Pearson correlation coefficient as the similarity metric and compare the accuracy of that with Euclidean distance similarity metric. Also by using the weighted average of ratings per user,  recommendations for an user can be obtained. 
+
+Once the simple recommendations system is completed, other attributes will be added into recommendation system for filtering the results. The predictive features that is which of user attributes, movie attributes and context attributes are strongly correlated with labels, will be identified. 
 
 \pagebreak
 
