@@ -1,7 +1,7 @@
 import pdb
 
 # A dictionary of movie critics and their ratings of a small
-# set of movies
+# set of movies 
 
 critics={'Lisa Rose': {'Lady in the Water': 2.5, 'Snakes on a Plane': 3.5,
 'Just My Luck': 3.0, 'Superman Returns': 3.5, 'You, Me and Dupree': 2.5,
@@ -66,6 +66,7 @@ def sim_pearson(prefs, person1, person2):
 
 # Returns the best matches for person from the prefs dictionary.
 # Number of results and similarity function are optional params.
+
 def top_matches(prefs, person, n=5, similarity_measure=sim_pearson):
 	scores = [(similarity_measure(prefs,person,person2),person2) for person2 in prefs if person2 != person]	
 	scores.sort()
