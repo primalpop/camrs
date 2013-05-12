@@ -1,0 +1,7 @@
+userID,itemID,age,sex,city,country,time,daytype,season,location,weather,social,endEmo,dominantEmo,mood,physical,decision,interaction,director,movieCountry,movieLanguage,movieYear,genre1,genre2,genre3,actor1,actor2,actor3,budget,rating
+56,107,28,Female,20,UK,Night,Weekend,Autumn,Home,Cloudy,Alone,Neutral,Neutral,Positive,Healthy,Decision,First,568,37,9,2005,7,12,18,1439,1953,1742,85000000,3
+56,134,28,Female,20,UK,Evening,Working,Autumn,Home,Rainy,Partner,Angry,Angry,Neutral,Healthy,Given,First,567,37,9,2010,10,7,-1,172,694,1596,5372848,2
+56,167,28,Female,20,UK,Night,Working,Autumn,Home,Cloudy,Alone,Neutral,Neutral,Neutral,Healthy,Decision,First,208,37,9,2004,10,17,19,139,82,1330,13000000,4
+56,189,28,Female,20,UK,Evening,Working,Autumn,Home,Rainy,Partner,Happy,Happy,Positive,Healthy,Decision,Nth,590,37,9,2004,1,19,21,1685,1137,1567,60000000,4
+56,68,28,Female,20,UK,Evening,Weekend,Autumn,Home,Sunny,Partner,Happy,Happy,Positive,Healthy,Decision,First,9,37,9,2010,1,7,8,1953,1267,589,100000000,5
+56,247,28,Female,20,UK,Evening,Weekend,Autumn,Home,Sunny,Partner,Surprised,Neutral,Neutral,Healthy,Decision,First,53,37,9,2009,1,8,10,1604,497,583,17000000,3

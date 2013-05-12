@@ -1,0 +1,4 @@
+userID,itemID,age,sex,city,country,time,daytype,season,location,weather,social,endEmo,dominantEmo,mood,physical,decision,interaction,director,movieCountry,movieLanguage,movieYear,genre1,genre2,genre3,actor1,actor2,actor3,budget,rating
+161,47,26,Male,10,Denmark,Evening,Weekend,Winter,Public,Rainy,Partner,Happy,Surprised,Positive,Healthy,Decision,First,135,37,9,2010,1,17,19,1169,1088,997,160000000,4
+161,3940,26,Male,10,Denmark,Night,Working,Spring,Home,Sunny,Alone,Happy,Angry,Positive,Healthy,Decision,Nth,361,37,9,1972,3,10,21,978,257,1423,2000000,4
+161,212,26,Male,10,Denmark,Afternoon,Weekend,Summer,Public,Sunny,Friends,Happy,Surprised,Positive,Healthy,Decision,First,307,37,9,2009,1,3,12,1680,1994,1776,240000000,5

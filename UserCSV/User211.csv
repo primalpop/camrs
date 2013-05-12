@@ -1,0 +1,4 @@
+userID,itemID,age,sex,city,country,time,daytype,season,location,weather,social,endEmo,dominantEmo,mood,physical,decision,interaction,director,movieCountry,movieLanguage,movieYear,genre1,genre2,genre3,actor1,actor2,actor3,budget,rating
+211,3,25,Female,22,France,Evening,Holiday,Summer,Home,Sunny,Friends,Happy,Happy,Positive,Healthy,Decision,First,246,37,9,2010,7,10,18,74,334,1910,30000000,5
+211,4040,25,Female,22,France,Evening,Weekend,Autumn,Friend,Sunny,Friends,Happy,Happy,Positive,Healthy,Decision,First,49,37,9,2011,7,10,18,264,47,1971,-1,5
+211,4070,25,Female,22,France,Night,Weekend,Autumn,Friend,Sunny,Friends,Happy,Happy,Neutral,Healthy,Decision,First,267,37,9,2011,7,10,18,1782,1663,1022,45000000,5

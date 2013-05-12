@@ -1,0 +1,2 @@
+userID,itemID,age,sex,city,country,time,daytype,season,location,weather,social,endEmo,dominantEmo,mood,physical,decision,interaction,director,movieCountry,movieLanguage,movieYear,genre1,genre2,genre3,actor1,actor2,actor3,budget,rating
+82,199,22,Female,10,Denmark,Evening,Weekend,Autumn,Public,Cloudy,Friends,Happy,Happy,Positive,Healthy,Given,First,691,37,9,2010,10,18,-1,1019,195,817,60000000,5

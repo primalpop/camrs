@@ -1,0 +1,7 @@
+userID,itemID,age,sex,city,country,time,daytype,season,location,weather,social,endEmo,dominantEmo,mood,physical,decision,interaction,director,movieCountry,movieLanguage,movieYear,genre1,genre2,genre3,actor1,actor2,actor3,budget,rating
+257,3589,18,Female,10,Denmark,Evening,Holiday,Winter,Public,Stormy,Public,Happy,Happy,Positive,Healthy,Decision,Nth,255,37,9,1999,1,3,19,1180,595,1416,115000000,4
+257,3590,18,Female,10,Denmark,Evening,Weekend,Summer,Public,Sunny,Public,Happy,Happy,Positive,Healthy,Decision,First,255,37,9,2002,1,3,19,595,1416,718,120000000,4
+257,3954,18,Female,10,Denmark,Evening,Holiday,Summer,Public,Sunny,Public,Scared,Surprised,Positive,Healthy,Decision,First,255,37,9,2005,1,3,19,595,718,1416,113000000,5
+257,3098,18,Female,10,Denmark,Afternoon,Weekend,Autumn,Home,Cloudy,Parents,Happy,Happy,Neutral,Healthy,Decision,Nth,255,37,9,1977,1,3,12,1263,710,282,-1,4
+257,4302,18,Female,10,Denmark,Evening,Working,Spring,Home,Sunny,Alone,Happy,Happy,Positive,Healthy,Decision,First,294,37,9,1980,1,3,19,1263,710,282,32000000,5
+257,2450,18,Female,10,Denmark,Evening,Holiday,Autumn,Home,Cloudy,Alone,Happy,Happy,Neutral,Healthy,Decision,First,741,37,9,1989,1,3,-1,710,1710,471,-1,4

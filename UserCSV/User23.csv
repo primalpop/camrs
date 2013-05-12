@@ -1,0 +1,8 @@
+userID,itemID,age,sex,city,country,time,daytype,season,location,weather,social,endEmo,dominantEmo,mood,physical,decision,interaction,director,movieCountry,movieLanguage,movieYear,genre1,genre2,genre3,actor1,actor2,actor3,budget,rating
+23,14,33,Male,20,UK,Evening,Weekend,Summer,Home,Sunny,Alone,Happy,Happy,Neutral,Healthy,Decision,First,234,36,9,2007,7,-1,-1,1303,1524,1656,9000000,5
+23,18,33,Male,20,UK,Afternoon,Weekend,Summer,Home,Rainy,Alone,Happy,Neutral,Neutral,Healthy,Decision,First,750,37,9,2010,1,3,21,1803,251,1376,82000000,4
+23,31,33,Male,20,UK,Afternoon,Weekend,Summer,Home,Rainy,Alone,Surprised,Happy,Neutral,Healthy,Decision,First,810,37,9,2008,10,18,-1,861,1519,1699,15000000,4
+23,32,33,Male,20,UK,Evening,Weekend,Summer,Home,Sunny,Alone,Angry,Neutral,Neutral,Healthy,Decision,First,225,37,9,2007,10,19,21,1957,59,314,150000000,3
+23,3592,33,Male,20,UK,Evening,Weekend,Autumn,Public,Rainy,Friends,Neutral,Neutral,Positive,Healthy,Given,First,639,37,9,2001,10,17,19,807,887,1287,4500000,4
+23,3675,33,Male,20,UK,Evening,Weekend,Winter,Public,Cloudy,Public,Happy,Happy,Positive,Healthy,Decision,First,193,27,23,2010,7,10,13,1561,1408,1269,-1,4
+23,3783,33,Male,20,UK,Evening,Weekend,Winter,Home,Cloudy,Alone,Happy,Happy,Neutral,Healthy,Decision,Nth,283,36,9,2008,1,8,21,1860,1266,1874,18000000,5

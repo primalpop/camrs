@@ -1,0 +1,5 @@
+userID,itemID,age,sex,city,country,time,daytype,season,location,weather,social,endEmo,dominantEmo,mood,physical,decision,interaction,director,movieCountry,movieLanguage,movieYear,genre1,genre2,genre3,actor1,actor2,actor3,budget,rating
+63,168,30,Female,2,US,Night,Weekend,Autumn,Home,Sunny,Partner,Happy,Neutral,Negative,Healthy,Decision,First,694,37,9,2010,7,18,-1,1548,395,1320,-1,3
+63,169,30,Female,2,US,Night,Working,Autumn,Home,Cloudy,Partner,Disgusted,Neutral,Neutral,Healthy,Decision,First,742,37,9,2009,14,21,-1,237,1156,1653,12500000,3
+63,83,30,Female,2,US,Evening,Weekend,Autumn,Home,Sunny,Partner,Disgusted,Happy,Positive,Healthy,Decision,First,650,37,9,2010,1,3,10,1659,290,1303,200000000,4
+63,202,30,Female,2,US,Night,Weekend,Autumn,Home,Cloudy,Partner,Disgusted,Disgusted,Negative,Healthy,Given,First,587,37,9,2010,10,21,-1,20,607,1234,21800000,2
