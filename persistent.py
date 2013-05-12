@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import math
+import pdb
 
 #For indexing the movie rating from the user dictionary
 RATING = 0
@@ -14,15 +15,27 @@ class AutoVivification(dict):
             value = self[item] = type(self)()
             return value
 
+def shuffle(df):
+	#Randomizes the dataframe
+	#Reference: http://stackoverflow.com/questions/13395725/efficient-way-of-doing-permutations-with-pandas-over-a-large-dataframe
+	ind = df.index
+	sampler = np.random.permutation(df.shape[0])
+	new_vals = df.take(sampler).values
+	df = pd.DataFrame(new_vals, index=ind)
+	return df            
+
 def main():
-	df = pd.read_csv('test_LDOS-CoMoDa.csv', na_values=['-1'])
-	#df = pd.read_csv('LDOS-CoMoDa.csv', na_values=['-1'])
+	df = pd.read_csv('datasets/LDOS-CoMoDa.csv', na_values=['-1'])
+	df = shuffle(df)
 	#Replacement of missing values using the mean of the available values.
 	for c in df.columns:
 		mean = df[c].mean()
 		df[c].fillna(mean)		
 	#Storing in a dictionary	
-	udb = AutoVivification() #data-store for [userid][itemid]
+	N = df.shape[0] #Number of training samples
+	train_len = int(N * 2/3.0)
+	train_udb = AutoVivification() #data-store for [userid][itemid] for training
+	test_udb = AutoVivification() #data-store for [userid][itemid] for testing
 	mdb = {} #moviedatabase
 	"""
 	users = {userid: {itemid: rating, age,sex,city,country, c1, c2, ................, c12}}
@@ -30,14 +43,21 @@ def main():
 	"""
 	#rows 2-19 user and contextual attributes
 	#19-30 movie attributes
-	for rows in df.values:
-		udb[rows[0]][rows[1]] = rows[2:19]
+	for rows in df.values[:train_len]:
+		train_udb[rows[0]][rows[1]] = rows[2:19]
 		mdb[rows[1]] = rows[19:]
+
+	for rows in df.values[train_len:]:
+		test_udb[rows[0]][rows[1]] = rows[2:19]
+		mdb[rows[1]] = rows[19:]	
+
 
 	#print sim_euclidean(udb, 254, 15)
 	#print sim_pearson(udb, 15, 195)
 	#print top_matches(udb, 15)
-	print get_recommendations(udb, 15)
+	recs =  get_recommendations(train_udb, 15)
+	print precision(15, recs, test_udb)
+	print recall(15, recs, test_udb)
 
 # Returns a distance-based similarity score for user1 and user2
 def sim_euclidean(udb, user1, user2):
@@ -108,16 +128,38 @@ def get_recommendations(prefs, person, similarity=sim_euclidean):
 				simSum[item] += sim		
 #	import pdb; pdb.set_trace()	
 	rankings = [(total/simSum[item], item) for item,total in totals.items()]
-	removed_items = [4325, 2423, 2009, 218, 228, 4319]
 	#Testing: Checking if ratings match with that in dataset
-"""	for (x, y) in rankings:
-		for item in removed_items:
-			if item == y:
-				print (x, y)				
-"""				
+			
 	rankings.sort()
 	rankings.reverse() 	
-	return rankings	
+	return rankings[:25]	
+
+def precision(user, recommendations, udb):
+#	pdb.set_trace()
+	all = len(recommendations)
+	tp = 0
+	for (x, y) in recommendations:
+		for movie in udb[user].keys():
+			if movie == y:
+				tp += 1
+				if udb[user][movie][RATING] == x:
+					tp += 2
+	#print tp, all				
+	return tp/all
+
+def recall(user, recommendations, udb):
+	#pdb.set_trace()
+	tp = 0
+	good_movies = 0
+	for movie in udb[user].keys():
+		if udb[user][movie][RATING] >= 4:
+				good_movies += 1		
+		for (x, y) in recommendations:
+			if movie == y:
+				tp += 1
+			
+	#print tp, good_movies				
+	return tp/good_movies			
 
 if __name__ == "__main__":
 	main()	
