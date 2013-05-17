@@ -47,18 +47,10 @@ new=np.array(new).astype(np.float)
 #print resultset
 #np.savetxt('results.csv',resultset,delimiter=",")
 
-cR = chi2(x, y)#print cR
-
-print x.shape
-clf = ExtraTreesClassifier(compute_importances=True, random_state=0)
-X_new = clf.fit(x, y).transform(x)
-#print X_new
-print X_new.shape
-
-#print len(x), len(y)
+cR = chi2(x, y)
 
 # Build a forest and compute the feature importances
-"""forest = ExtraTreesClassifier(n_estimators=250,
+forest = ExtraTreesClassifier(n_estimators=250,
                               compute_importances=True,
                               random_state=0)
 
@@ -73,5 +65,13 @@ print "Feature ranking:"
 
 for f in xrange(10):
     print "%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]])
-
-"""    
+ 
+# Plot the feature importances of the forest
+import pylab as pl
+pl.figure()
+pl.title("Feature importances")
+#pl.bar(xrange(10), importances[indices],
+#       color="r", yerr=std[indices], align="center")
+pl.xticks(xrange(10), indices)
+pl.xlim([-1, 10])
+pl.show() 
