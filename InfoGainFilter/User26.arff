@@ -1,0 +1,124 @@
+@relation 'User26-weka.filters.unsupervised.attribute.NumericToNominal-Rlast-weka.filters.supervised.attribute.AttributeSelection-Eweka.attributeSelection.InfoGainAttributeEval-Sweka.attributeSelection.Ranker -T -1.7976931348623157E308 -N -1'
+
+@attribute dominantEmo {Happy,Neutral,Surprised,Sad,Disgusted,Scared}
+@attribute endEmo {Happy,Neutral,Sad,Disgusted,Scared,Surprised}
+@attribute social {Partner,Alone,Friends,Colleagues}
+@attribute mood {Neutral,Positive,Negative}
+@attribute decision {Decision,Given}
+@attribute location {Home,Friend,Public}
+@attribute weather {Sunny,Rainy,Cloudy,Snowy}
+@attribute interaction {First,Nth}
+@attribute daytype {Working,Weekend,Holiday}
+@attribute time {Night,Evening,Afternoon}
+@attribute physical {Healthy,Ill}
+@attribute season {Autumn,Winter,Summer,Spring}
+@attribute country {France}
+@attribute city numeric
+@attribute itemID numeric
+@attribute age numeric
+@attribute sex {Female}
+@attribute userID numeric
+@attribute rating {1,2,3,4,5}
+
+@data
+Happy,Happy,Partner,Neutral,Decision,Home,Sunny,First,Working,Night,Healthy,Autumn,France,3,17,-1,Female,26,5
+Happy,Happy,Partner,Neutral,Decision,Home,Rainy,First,Working,Night,Healthy,Autumn,France,3,18,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Autumn,France,3,16,-1,Female,26,1
+Neutral,Neutral,Partner,Neutral,Decision,Home,Rainy,Nth,Weekend,Night,Healthy,Autumn,France,3,34,-1,Female,26,3
+Neutral,Sad,Partner,Neutral,Decision,Home,Rainy,First,Working,Night,Healthy,Autumn,France,3,95,-1,Female,26,4
+Neutral,Sad,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Night,Healthy,Autumn,France,3,128,-1,Female,26,5
+Neutral,Happy,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,146,-1,Female,26,3
+Neutral,Happy,Partner,Positive,Decision,Home,Cloudy,First,Working,Evening,Healthy,Autumn,France,3,141,-1,Female,26,5
+Happy,Happy,Alone,Positive,Decision,Home,Snowy,First,Working,Night,Healthy,Winter,France,3,164,-1,Female,26,5
+Neutral,Neutral,Alone,Neutral,Decision,Home,Rainy,First,Weekend,Afternoon,Healthy,Autumn,France,3,47,-1,Female,26,3
+Happy,Neutral,Partner,Neutral,Decision,Home,Rainy,First,Working,Evening,Healthy,Autumn,France,3,63,-1,Female,26,5
+Happy,Happy,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,65,-1,Female,26,4
+Happy,Happy,Partner,Neutral,Given,Home,Sunny,First,Weekend,Evening,Healthy,Summer,France,3,53,-1,Female,26,4
+Happy,Happy,Partner,Neutral,Decision,Home,Rainy,First,Working,Night,Healthy,Summer,France,3,77,-1,Female,26,4
+Surprised,Neutral,Alone,Positive,Decision,Home,Cloudy,First,Weekend,Night,Healthy,Autumn,France,3,165,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,26,-1,Female,26,4
+Neutral,Disgusted,Partner,Neutral,Decision,Home,Cloudy,First,Working,Evening,Healthy,Autumn,France,3,38,-1,Female,26,3
+Happy,Happy,Alone,Neutral,Decision,Home,Cloudy,First,Weekend,Night,Healthy,Winter,France,3,3632,-1,Female,26,5
+Happy,Happy,Partner,Positive,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Winter,France,3,3633,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Working,Evening,Healthy,Winter,France,3,3634,-1,Female,26,4
+Surprised,Scared,Alone,Positive,Decision,Home,Cloudy,Nth,Weekend,Afternoon,Healthy,Winter,France,3,245,-1,Female,26,4
+Neutral,Neutral,Alone,Neutral,Decision,Home,Rainy,First,Weekend,Evening,Healthy,Winter,France,3,3652,-1,Female,26,3
+Sad,Scared,Alone,Positive,Decision,Home,Snowy,Nth,Weekend,Afternoon,Healthy,Winter,France,3,3661,-1,Female,26,5
+Happy,Neutral,Partner,Positive,Decision,Friend,Sunny,First,Weekend,Afternoon,Healthy,Summer,France,3,3188,-1,Female,26,5
+Neutral,Neutral,Partner,Positive,Decision,Friend,Sunny,First,Holiday,Afternoon,Healthy,Summer,France,3,3030,-1,Female,26,4
+Neutral,Neutral,Alone,Neutral,Decision,Home,Cloudy,First,Working,Night,Healthy,Autumn,France,3,3518,-1,Female,26,4
+Neutral,Neutral,Partner,Positive,Decision,Home,Cloudy,First,Working,Evening,Healthy,Winter,France,3,3506,-1,Female,26,3
+Surprised,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Summer,France,3,115,-1,Female,26,5
+Surprised,Sad,Partner,Neutral,Decision,Home,Cloudy,First,Working,Evening,Healthy,Autumn,France,3,54,-1,Female,26,4
+Neutral,Neutral,Alone,Positive,Decision,Home,Sunny,First,Holiday,Night,Healthy,Summer,France,3,212,-1,Female,26,3
+Neutral,Neutral,Alone,Positive,Decision,Home,Rainy,First,Weekend,Afternoon,Healthy,Autumn,France,3,39,-1,Female,26,3
+Happy,Happy,Friends,Positive,Decision,Friend,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,3662,-1,Female,26,4
+Disgusted,Disgusted,Partner,Neutral,Decision,Home,Rainy,First,Working,Evening,Healthy,Autumn,France,3,3663,-1,Female,26,2
+Happy,Happy,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Evening,Healthy,Autumn,France,3,55,-1,Female,26,3
+Neutral,Happy,Partner,Neutral,Given,Home,Rainy,First,Working,Evening,Healthy,Autumn,France,3,3664,-1,Female,26,4
+Neutral,Neutral,Partner,Positive,Decision,Friend,Cloudy,First,Working,Evening,Healthy,Autumn,France,3,3665,-1,Female,26,2
+Neutral,Neutral,Partner,Positive,Decision,Home,Rainy,First,Weekend,Evening,Healthy,Autumn,France,3,3666,-1,Female,26,4
+Neutral,Neutral,Partner,Positive,Decision,Home,Sunny,First,Weekend,Evening,Healthy,Summer,France,3,3667,-1,Female,26,1
+Neutral,Happy,Partner,Neutral,Decision,Home,Sunny,First,Holiday,Evening,Healthy,Spring,France,3,3668,-1,Female,26,3
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Summer,France,3,3669,-1,Female,26,1
+Happy,Happy,Partner,Positive,Decision,Home,Snowy,Nth,Weekend,Night,Healthy,Winter,France,3,135,-1,Female,26,5
+Happy,Happy,Partner,Positive,Given,Home,Snowy,First,Weekend,Evening,Healthy,Winter,France,3,3687,-1,Female,26,4
+Surprised,Neutral,Alone,Neutral,Decision,Home,Cloudy,First,Working,Night,Healthy,Winter,France,3,3726,-1,Female,26,5
+Neutral,Neutral,Alone,Neutral,Decision,Home,Sunny,First,Working,Night,Healthy,Winter,France,3,3579,-1,Female,26,4
+Neutral,Neutral,Colleagues,Neutral,Given,Public,Rainy,First,Working,Evening,Healthy,Winter,France,3,3770,-1,Female,26,1
+Surprised,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Night,Healthy,Spring,France,3,3888,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Spring,France,3,3599,-1,Female,26,3
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Night,Healthy,Spring,France,3,3889,-1,Female,26,3
+Neutral,Neutral,Partner,Positive,Decision,Home,Sunny,First,Weekend,Night,Healthy,Spring,France,3,3900,-1,Female,26,3
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Evening,Healthy,Spring,France,3,67,-1,Female,26,4
+Neutral,Sad,Partner,Neutral,Decision,Home,Rainy,First,Working,Evening,Healthy,Spring,France,3,3901,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Working,Night,Healthy,Spring,France,3,3915,-1,Female,26,3
+Neutral,Surprised,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Spring,France,3,3748,-1,Female,26,4
+Neutral,Disgusted,Alone,Neutral,Decision,Home,Sunny,Nth,Weekend,Night,Healthy,Spring,France,3,3928,-1,Female,26,2
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Spring,France,3,3930,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Spring,France,3,3950,-1,Female,26,4
+Neutral,Neutral,Alone,Positive,Decision,Home,Sunny,First,Weekend,Evening,Healthy,Spring,France,3,3951,-1,Female,26,2
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Evening,Healthy,Spring,France,3,3713,-1,Female,26,4
+Neutral,Surprised,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Night,Healthy,Spring,France,3,3874,-1,Female,26,5
+Neutral,Happy,Partner,Positive,Decision,Home,Sunny,First,Working,Evening,Healthy,Spring,France,3,2903,-1,Female,26,5
+Neutral,Neutral,Alone,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Spring,France,3,159,-1,Female,26,4
+Neutral,Happy,Partner,Positive,Given,Home,Rainy,First,Weekend,Evening,Healthy,Spring,France,3,3545,-1,Female,26,5
+Neutral,Neutral,Alone,Neutral,Decision,Home,Rainy,Nth,Weekend,Night,Healthy,Spring,France,3,3963,-1,Female,26,3
+Happy,Happy,Partner,Positive,Decision,Home,Rainy,Nth,Weekend,Afternoon,Healthy,Spring,France,3,3967,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Given,Home,Sunny,First,Working,Evening,Healthy,Spring,France,3,3970,-1,Female,26,1
+Neutral,Neutral,Partner,Neutral,Given,Home,Sunny,Nth,Weekend,Night,Healthy,Spring,France,3,8,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Evening,Healthy,Spring,France,3,3975,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Given,Home,Sunny,First,Weekend,Afternoon,Healthy,Summer,France,3,4001,-1,Female,26,2
+Neutral,Neutral,Partner,Neutral,Given,Home,Sunny,First,Working,Evening,Healthy,Summer,France,3,3980,-1,Female,26,5
+Neutral,Neutral,Alone,Neutral,Decision,Home,Sunny,First,Working,Evening,Healthy,Summer,France,3,3909,-1,Female,26,3
+Neutral,Neutral,Partner,Neutral,Decision,Home,Sunny,First,Weekend,Evening,Healthy,Summer,France,3,3992,-1,Female,26,3
+Neutral,Neutral,Partner,Neutral,Given,Home,Rainy,Nth,Working,Evening,Healthy,Summer,France,3,4065,-1,Female,26,3
+Neutral,Neutral,Partner,Neutral,Given,Home,Sunny,Nth,Working,Evening,Healthy,Summer,France,3,3797,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Given,Home,Sunny,First,Working,Evening,Healthy,Autumn,France,3,3443,-1,Female,26,4
+Neutral,Neutral,Partner,Positive,Given,Home,Sunny,Nth,Working,Evening,Healthy,Autumn,France,3,3832,-1,Female,26,5
+Neutral,Neutral,Partner,Positive,Given,Home,Cloudy,First,Working,Evening,Healthy,Autumn,France,3,4082,-1,Female,26,1
+Disgusted,Neutral,Partner,Positive,Given,Home,Cloudy,First,Weekend,Night,Healthy,Autumn,France,3,3964,-1,Female,26,1
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,4032,-1,Female,26,3
+Happy,Neutral,Partner,Positive,Given,Home,Rainy,Nth,Working,Night,Healthy,Autumn,France,3,3032,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Given,Home,Cloudy,First,Working,Evening,Healthy,Autumn,France,3,4081,-1,Female,26,5
+Neutral,Happy,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,4098,-1,Female,26,5
+Neutral,Sad,Partner,Positive,Given,Home,Cloudy,Nth,Working,Evening,Healthy,Autumn,France,3,3922,-1,Female,26,5
+Neutral,Neutral,Alone,Neutral,Decision,Home,Rainy,Nth,Weekend,Afternoon,Healthy,Autumn,France,3,2677,-1,Female,26,5
+Surprised,Surprised,Alone,Neutral,Decision,Home,Rainy,Nth,Weekend,Evening,Healthy,Autumn,France,3,2725,-1,Female,26,5
+Neutral,Neutral,Partner,Positive,Decision,Home,Sunny,First,Working,Evening,Healthy,Autumn,France,3,4087,-1,Female,26,4
+Neutral,Neutral,Alone,Neutral,Given,Home,Cloudy,Nth,Weekend,Afternoon,Ill,Autumn,France,3,2460,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Given,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,4125,-1,Female,26,4
+Neutral,Neutral,Partner,Negative,Given,Home,Cloudy,First,Working,Evening,Ill,Autumn,France,3,4127,-1,Female,26,1
+Neutral,Neutral,Partner,Negative,Given,Home,Cloudy,First,Working,Evening,Ill,Autumn,France,3,4033,-1,Female,26,4
+Scared,Neutral,Partner,Negative,Decision,Home,Cloudy,First,Working,Night,Ill,Autumn,France,3,4128,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Given,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,4138,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Given,Home,Cloudy,First,Working,Evening,Healthy,Autumn,France,3,4144,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Weekend,Evening,Healthy,Autumn,France,3,4155,-1,Female,26,1
+Sad,Neutral,Alone,Neutral,Decision,Home,Cloudy,First,Weekend,Afternoon,Healthy,Autumn,France,3,4156,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Decision,Home,Rainy,First,Working,Evening,Healthy,Autumn,France,3,4159,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Working,Evening,Healthy,Winter,France,3,4166,-1,Female,26,4
+Happy,Happy,Partner,Neutral,Decision,Home,Cloudy,Nth,Holiday,Evening,Healthy,Winter,France,3,1972,-1,Female,26,4
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,Nth,Holiday,Evening,Healthy,Winter,France,3,3984,-1,Female,26,5
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Holiday,Evening,Healthy,Winter,France,3,4147,-1,Female,26,3
+Neutral,Neutral,Partner,Neutral,Decision,Home,Cloudy,First,Working,Night,Healthy,Winter,France,3,3029,-1,Female,26,2
+Neutral,Neutral,Alone,Neutral,Decision,Home,Cloudy,First,Working,Evening,Healthy,Winter,France,3,4200,-1,Female,26,5

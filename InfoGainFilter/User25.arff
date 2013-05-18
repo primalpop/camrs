@@ -1,0 +1,117 @@
+@relation 'User25-weka.filters.unsupervised.attribute.NumericToNominal-Rlast-weka.filters.supervised.attribute.AttributeSelection-Eweka.attributeSelection.InfoGainAttributeEval-Sweka.attributeSelection.Ranker -T -1.7976931348623157E308 -N -1'
+
+@attribute endEmo {Sad,Surprised,Neutral,Happy,Disgusted,Scared,Angry}
+@attribute dominantEmo {Sad,Scared,Angry,Happy,Surprised,Disgusted,Neutral}
+@attribute daytype {Working,Weekend,Holiday}
+@attribute time {Night,Afternoon,Evening,Morning}
+@attribute season {Summer,Autumn,Winter,Spring}
+@attribute social {Alone,Partner,Friends}
+@attribute decision {Given,Decision}
+@attribute weather {Rainy,Sunny,Cloudy,Snowy,Stormy}
+@attribute mood {Positive,Negative,Neutral}
+@attribute location {Home,Public}
+@attribute physical {Healthy,Ill}
+@attribute interaction {First,Nth}
+@attribute country {UK}
+@attribute city numeric
+@attribute itemID numeric
+@attribute age numeric
+@attribute sex {Male}
+@attribute userID numeric
+@attribute rating {1,2,3,4,5}
+
+@data
+Sad,Sad,Working,Night,Summer,Alone,Given,Rainy,Positive,Home,Healthy,First,UK,20,9,27,Male,25,4
+Surprised,Scared,Weekend,Afternoon,Summer,Partner,Decision,Sunny,Negative,Home,Healthy,First,UK,20,47,27,Male,25,5
+Neutral,Angry,Weekend,Afternoon,Summer,Partner,Decision,Cloudy,Neutral,Home,Healthy,First,UK,20,48,27,Male,25,2
+Happy,Happy,Working,Night,Summer,Alone,Decision,Sunny,Negative,Home,Healthy,First,UK,20,59,27,Male,25,2
+Sad,Surprised,Working,Night,Summer,Partner,Decision,Sunny,Negative,Home,Healthy,First,UK,20,60,27,Male,25,3
+Happy,Surprised,Weekend,Afternoon,Autumn,Partner,Decision,Rainy,Negative,Home,Ill,First,UK,20,66,27,Male,25,4
+Disgusted,Scared,Weekend,Afternoon,Autumn,Alone,Decision,Sunny,Neutral,Home,Healthy,First,UK,20,121,27,Male,25,2
+Sad,Sad,Working,Evening,Autumn,Alone,Given,Cloudy,Positive,Home,Healthy,First,UK,20,126,27,Male,25,4
+Disgusted,Disgusted,Weekend,Evening,Autumn,Partner,Decision,Cloudy,Negative,Home,Healthy,First,UK,20,99,27,Male,25,1
+Sad,Sad,Working,Evening,Autumn,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,102,27,Male,25,3
+Happy,Happy,Holiday,Morning,Autumn,Alone,Decision,Sunny,Neutral,Home,Ill,First,UK,20,68,27,Male,25,3
+Happy,Happy,Weekend,Morning,Autumn,Alone,Given,Sunny,Positive,Home,Ill,First,UK,20,140,27,Male,25,3
+Happy,Happy,Weekend,Evening,Autumn,Partner,Decision,Sunny,Positive,Home,Ill,First,UK,20,145,27,Male,25,4
+Neutral,Neutral,Weekend,Morning,Autumn,Alone,Decision,Sunny,Positive,Home,Ill,First,UK,20,83,27,Male,25,3
+Happy,Happy,Weekend,Afternoon,Autumn,Alone,Decision,Sunny,Positive,Home,Ill,First,UK,20,147,27,Male,25,4
+Happy,Surprised,Weekend,Afternoon,Autumn,Partner,Decision,Sunny,Positive,Home,Ill,First,UK,20,155,27,Male,25,3
+Surprised,Surprised,Weekend,Evening,Autumn,Partner,Decision,Sunny,Positive,Home,Ill,First,UK,20,148,27,Male,25,4
+Sad,Angry,Working,Evening,Autumn,Partner,Given,Cloudy,Negative,Home,Healthy,First,UK,20,204,27,Male,25,4
+Surprised,Disgusted,Holiday,Afternoon,Autumn,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,253,27,Male,25,3
+Neutral,Neutral,Holiday,Evening,Autumn,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,254,27,Male,25,1
+Happy,Happy,Holiday,Evening,Autumn,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,255,27,Male,25,4
+Happy,Happy,Working,Night,Autumn,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3510,27,Male,25,4
+Sad,Surprised,Weekend,Evening,Autumn,Partner,Given,Sunny,Positive,Home,Healthy,Nth,UK,20,3520,27,Male,25,4
+Scared,Scared,Weekend,Morning,Autumn,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3521,27,Male,25,2
+Disgusted,Disgusted,Working,Evening,Autumn,Partner,Decision,Snowy,Positive,Home,Healthy,First,UK,20,3637,27,Male,25,2
+Happy,Happy,Working,Evening,Autumn,Partner,Decision,Rainy,Positive,Home,Healthy,First,UK,20,3638,27,Male,25,2
+Happy,Happy,Working,Evening,Autumn,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3639,27,Male,25,4
+Surprised,Surprised,Working,Night,Autumn,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3579,27,Male,25,3
+Angry,Surprised,Weekend,Evening,Autumn,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3521,27,Male,25,2
+Happy,Happy,Working,Afternoon,Autumn,Alone,Decision,Rainy,Positive,Home,Healthy,First,UK,20,3640,27,Male,25,3
+Happy,Happy,Working,Night,Autumn,Alone,Decision,Rainy,Positive,Home,Healthy,First,UK,20,3641,27,Male,25,3
+Surprised,Scared,Weekend,Morning,Autumn,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,3642,27,Male,25,4
+Angry,Angry,Weekend,Afternoon,Autumn,Partner,Decision,Snowy,Positive,Home,Healthy,First,UK,20,3643,27,Male,25,3
+Angry,Angry,Weekend,Evening,Autumn,Partner,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,3644,27,Male,25,2
+Happy,Surprised,Holiday,Night,Winter,Alone,Decision,Rainy,Positive,Home,Healthy,First,UK,20,3676,27,Male,25,3
+Neutral,Neutral,Holiday,Afternoon,Winter,Partner,Decision,Rainy,Positive,Home,Healthy,First,UK,20,3677,27,Male,25,1
+Happy,Happy,Working,Evening,Winter,Partner,Decision,Snowy,Positive,Home,Healthy,First,UK,20,3678,27,Male,25,3
+Happy,Neutral,Weekend,Afternoon,Winter,Alone,Decision,Rainy,Positive,Home,Healthy,First,UK,20,16,27,Male,25,2
+Sad,Sad,Weekend,Morning,Winter,Alone,Decision,Snowy,Positive,Home,Healthy,Nth,UK,20,3679,27,Male,25,4
+Happy,Happy,Weekend,Morning,Winter,Alone,Decision,Snowy,Positive,Home,Healthy,First,UK,20,141,27,Male,25,5
+Happy,Sad,Holiday,Afternoon,Winter,Partner,Decision,Rainy,Positive,Home,Healthy,First,UK,20,98,27,Male,25,3
+Happy,Scared,Holiday,Afternoon,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,180,27,Male,25,3
+Happy,Happy,Holiday,Morning,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,52,27,Male,25,2
+Happy,Happy,Holiday,Morning,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,3613,27,Male,25,4
+Neutral,Happy,Working,Afternoon,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,3687,27,Male,25,2
+Happy,Happy,Holiday,Afternoon,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,17,27,Male,25,3
+Surprised,Happy,Holiday,Afternoon,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,53,27,Male,25,4
+Happy,Happy,Working,Evening,Winter,Alone,Decision,Snowy,Positive,Home,Healthy,First,UK,20,3751,27,Male,25,3
+Surprised,Scared,Working,Night,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,201,27,Male,25,4
+Scared,Surprised,Working,Night,Winter,Partner,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,3774,27,Male,25,5
+Happy,Happy,Weekend,Afternoon,Winter,Partner,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,3743,27,Male,25,2
+Happy,Happy,Working,Evening,Winter,Alone,Decision,Sunny,Positive,Home,Healthy,Nth,UK,20,3775,27,Male,25,5
+Happy,Happy,Working,Afternoon,Winter,Alone,Decision,Sunny,Positive,Home,Ill,Nth,UK,20,3777,27,Male,25,2
+Scared,Surprised,Working,Afternoon,Winter,Partner,Decision,Sunny,Neutral,Home,Ill,First,UK,20,3628,27,Male,25,3
+Sad,Happy,Weekend,Morning,Winter,Alone,Decision,Cloudy,Neutral,Home,Ill,First,UK,20,173,27,Male,25,4
+Scared,Scared,Weekend,Evening,Winter,Friends,Decision,Snowy,Neutral,Public,Healthy,First,UK,20,3726,27,Male,25,5
+Sad,Sad,Weekend,Morning,Winter,Alone,Decision,Cloudy,Negative,Home,Healthy,First,UK,20,3727,27,Male,25,5
+Happy,Sad,Weekend,Morning,Winter,Alone,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,3808,27,Male,25,3
+Sad,Sad,Weekend,Morning,Winter,Alone,Decision,Sunny,Neutral,Home,Ill,First,UK,20,3710,27,Male,25,3
+Scared,Sad,Weekend,Morning,Winter,Alone,Decision,Sunny,Positive,Home,Ill,First,UK,20,3850,27,Male,25,5
+Happy,Happy,Weekend,Morning,Winter,Alone,Decision,Sunny,Negative,Home,Ill,First,UK,20,3851,27,Male,25,5
+Happy,Happy,Weekend,Morning,Winter,Alone,Decision,Sunny,Negative,Home,Ill,First,UK,20,3852,27,Male,25,4
+Happy,Happy,Weekend,Afternoon,Winter,Alone,Decision,Sunny,Positive,Home,Ill,Nth,UK,20,3853,27,Male,25,3
+Happy,Surprised,Weekend,Afternoon,Winter,Partner,Decision,Stormy,Positive,Home,Healthy,First,UK,20,3854,27,Male,25,3
+Happy,Sad,Weekend,Afternoon,Winter,Partner,Decision,Cloudy,Neutral,Home,Healthy,First,UK,20,3787,27,Male,25,4
+Sad,Sad,Weekend,Morning,Winter,Alone,Decision,Cloudy,Negative,Home,Healthy,First,UK,20,3807,27,Male,25,3
+Sad,Sad,Weekend,Morning,Winter,Alone,Decision,Sunny,Negative,Home,Healthy,First,UK,20,3844,27,Male,25,5
+Sad,Scared,Weekend,Afternoon,Winter,Alone,Decision,Sunny,Negative,Home,Healthy,First,UK,20,3716,27,Male,25,4
+Sad,Happy,Working,Evening,Winter,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3724,27,Male,25,5
+Sad,Happy,Working,Morning,Winter,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3909,27,Male,25,4
+Happy,Happy,Weekend,Afternoon,Winter,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3630,27,Male,25,1
+Surprised,Happy,Weekend,Evening,Winter,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3768,27,Male,25,5
+Sad,Scared,Working,Afternoon,Winter,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3910,27,Male,25,3
+Happy,Surprised,Weekend,Morning,Spring,Alone,Decision,Rainy,Positive,Home,Healthy,Nth,UK,20,2717,27,Male,25,4
+Sad,Angry,Weekend,Afternoon,Spring,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3748,27,Male,25,2
+Happy,Happy,Weekend,Afternoon,Spring,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3849,27,Male,25,4
+Happy,Happy,Working,Afternoon,Spring,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3959,27,Male,25,3
+Happy,Surprised,Weekend,Morning,Spring,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3960,27,Male,25,2
+Happy,Happy,Working,Evening,Winter,Partner,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,4203,27,Male,25,3
+Happy,Surprised,Working,Evening,Winter,Partner,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,4204,27,Male,25,4
+Happy,Angry,Weekend,Morning,Winter,Partner,Decision,Sunny,Positive,Home,Healthy,First,UK,20,4205,27,Male,25,2
+Angry,Angry,Weekend,Afternoon,Winter,Partner,Decision,Cloudy,Positive,Home,Ill,First,UK,20,4206,27,Male,25,2
+Scared,Surprised,Weekend,Morning,Winter,Partner,Decision,Sunny,Positive,Home,Ill,First,UK,20,4207,27,Male,25,4
+Surprised,Surprised,Weekend,Afternoon,Winter,Partner,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,4208,27,Male,25,3
+Happy,Happy,Weekend,Night,Winter,Alone,Decision,Cloudy,Positive,Home,Ill,First,UK,20,4209,27,Male,25,3
+Happy,Happy,Working,Afternoon,Winter,Alone,Decision,Stormy,Positive,Home,Healthy,First,UK,20,4210,27,Male,25,4
+Happy,Surprised,Working,Night,Autumn,Partner,Decision,Rainy,Positive,Home,Healthy,First,UK,20,4211,27,Male,25,5
+Happy,Happy,Weekend,Morning,Winter,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,3990,27,Male,25,4
+Scared,Surprised,Working,Afternoon,Winter,Alone,Decision,Rainy,Positive,Home,Healthy,First,UK,20,4081,27,Male,25,5
+Scared,Happy,Working,Afternoon,Winter,Alone,Decision,Snowy,Negative,Home,Healthy,First,UK,20,4070,27,Male,25,3
+Happy,Surprised,Working,Afternoon,Winter,Alone,Decision,Snowy,Negative,Home,Healthy,First,UK,20,4036,27,Male,25,4
+Happy,Surprised,Weekend,Morning,Winter,Alone,Decision,Sunny,Positive,Home,Healthy,First,UK,20,4142,27,Male,25,4
+Happy,Happy,Weekend,Evening,Winter,Partner,Decision,Cloudy,Positive,Home,Healthy,First,UK,20,1938,27,Male,25,3
+Sad,Happy,Weekend,Evening,Winter,Alone,Decision,Snowy,Positive,Home,Healthy,Nth,UK,20,4034,27,Male,25,4

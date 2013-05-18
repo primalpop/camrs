@@ -1,0 +1,109 @@
+@relation 'User33-weka.filters.unsupervised.attribute.NumericToNominal-Rlast-weka.filters.supervised.attribute.AttributeSelection-Eweka.attributeSelection.InfoGainAttributeEval-Sweka.attributeSelection.Ranker -T -1.7976931348623157E308 -N -1'
+
+@attribute endEmo {Neutral,Happy,Sad,Surprised,Scared,Disgusted,Angry}
+@attribute dominantEmo {Neutral,Happy,Sad,Surprised,Disgusted,Scared}
+@attribute social {Partner,Public,Alone,Friends}
+@attribute time {Afternoon,Evening,Night,Morning}
+@attribute weather {Sunny,Rainy,Cloudy,Snowy}
+@attribute location {Home,Public,Friend}
+@attribute season {Summer,Autumn,Winter,Spring}
+@attribute daytype {Weekend,Working,Holiday}
+@attribute decision {Given,Decision}
+@attribute mood {Positive,Neutral,Negative}
+@attribute physical {Healthy,Ill}
+@attribute interaction {Nth,First}
+@attribute country {Denmark}
+@attribute city numeric
+@attribute itemID numeric
+@attribute age numeric
+@attribute sex {Female}
+@attribute userID numeric
+@attribute rating {1,2,3,4,5}
+
+@data
+Neutral,Neutral,Partner,Afternoon,Sunny,Home,Summer,Weekend,Given,Positive,Healthy,Nth,Denmark,10,5,26,Female,33,3
+Happy,Happy,Partner,Evening,Sunny,Home,Summer,Weekend,Given,Positive,Healthy,First,Denmark,10,6,26,Female,33,4
+Happy,Happy,Public,Evening,Rainy,Public,Summer,Working,Given,Neutral,Healthy,First,Denmark,10,37,26,Female,33,5
+Neutral,Happy,Partner,Evening,Sunny,Home,Autumn,Working,Given,Neutral,Ill,First,Denmark,10,64,26,Female,33,3
+Sad,Sad,Alone,Evening,Rainy,Home,Autumn,Weekend,Given,Neutral,Ill,First,Denmark,10,70,26,Female,33,4
+Neutral,Neutral,Alone,Night,Rainy,Home,Autumn,Weekend,Given,Neutral,Ill,First,Denmark,10,71,26,Female,33,2
+Neutral,Neutral,Alone,Morning,Rainy,Home,Autumn,Weekend,Given,Neutral,Ill,Nth,Denmark,10,72,26,Female,33,4
+Neutral,Neutral,Alone,Evening,Rainy,Home,Autumn,Weekend,Given,Neutral,Ill,First,Denmark,10,73,26,Female,33,3
+Surprised,Surprised,Partner,Evening,Sunny,Home,Autumn,Working,Given,Negative,Healthy,First,Denmark,10,106,26,Female,33,5
+Surprised,Surprised,Friends,Evening,Sunny,Home,Autumn,Weekend,Given,Neutral,Healthy,First,Denmark,10,113,26,Female,33,3
+Happy,Happy,Partner,Afternoon,Sunny,Home,Autumn,Weekend,Decision,Neutral,Healthy,First,Denmark,10,122,26,Female,33,4
+Neutral,Neutral,Partner,Afternoon,Sunny,Home,Autumn,Weekend,Given,Positive,Healthy,First,Denmark,10,125,26,Female,33,2
+Happy,Happy,Partner,Afternoon,Rainy,Home,Autumn,Weekend,Decision,Neutral,Healthy,First,Denmark,10,173,26,Female,33,4
+Neutral,Neutral,Partner,Evening,Cloudy,Home,Autumn,Working,Decision,Positive,Healthy,First,Denmark,10,184,26,Female,33,1
+Happy,Surprised,Partner,Evening,Rainy,Home,Autumn,Weekend,Given,Positive,Healthy,First,Denmark,10,176,26,Female,33,5
+Surprised,Surprised,Partner,Evening,Sunny,Home,Winter,Weekend,Given,Neutral,Ill,First,Denmark,10,3646,26,Female,33,5
+Neutral,Happy,Partner,Evening,Cloudy,Home,Autumn,Weekend,Decision,Positive,Healthy,First,Denmark,10,3508,26,Female,33,4
+Happy,Surprised,Alone,Afternoon,Rainy,Home,Autumn,Working,Given,Positive,Healthy,First,Denmark,10,3567,26,Female,33,5
+Neutral,Neutral,Alone,Evening,Cloudy,Home,Autumn,Working,Given,Positive,Healthy,First,Denmark,10,3591,26,Female,33,2
+Neutral,Neutral,Alone,Evening,Cloudy,Home,Autumn,Working,Given,Positive,Healthy,First,Denmark,10,3654,26,Female,33,2
+Surprised,Surprised,Partner,Evening,Snowy,Home,Autumn,Weekend,Decision,Positive,Healthy,First,Denmark,10,77,26,Female,33,4
+Neutral,Neutral,Alone,Afternoon,Snowy,Home,Autumn,Weekend,Decision,Positive,Healthy,First,Denmark,10,3660,26,Female,33,4
+Neutral,Neutral,Alone,Night,Rainy,Home,Winter,Weekend,Given,Neutral,Healthy,First,Denmark,10,3680,26,Female,33,1
+Neutral,Neutral,Friends,Evening,Cloudy,Home,Winter,Weekend,Decision,Positive,Healthy,First,Denmark,10,175,26,Female,33,3
+Neutral,Sad,Partner,Evening,Snowy,Home,Winter,Weekend,Decision,Positive,Healthy,First,Denmark,10,3510,26,Female,33,4
+Surprised,Surprised,Partner,Evening,Cloudy,Home,Winter,Working,Decision,Positive,Healthy,First,Denmark,10,141,26,Female,33,5
+Neutral,Neutral,Partner,Evening,Cloudy,Home,Winter,Working,Given,Neutral,Healthy,First,Denmark,10,3720,26,Female,33,2
+Scared,Surprised,Partner,Night,Sunny,Home,Winter,Weekend,Decision,Positive,Healthy,First,Denmark,10,47,26,Female,33,5
+Happy,Surprised,Alone,Evening,Rainy,Home,Winter,Working,Given,Positive,Healthy,First,Denmark,10,3762,26,Female,33,4
+Sad,Neutral,Partner,Night,Cloudy,Home,Winter,Weekend,Given,Positive,Healthy,First,Denmark,10,3782,26,Female,33,3
+Disgusted,Disgusted,Partner,Evening,Cloudy,Home,Winter,Working,Decision,Neutral,Ill,First,Denmark,10,3726,26,Female,33,3
+Neutral,Sad,Alone,Afternoon,Sunny,Home,Winter,Weekend,Given,Neutral,Ill,First,Denmark,10,3793,26,Female,33,3
+Sad,Neutral,Alone,Evening,Sunny,Home,Winter,Weekend,Decision,Neutral,Ill,First,Denmark,10,3794,26,Female,33,5
+Neutral,Neutral,Partner,Night,Sunny,Home,Winter,Weekend,Given,Neutral,Ill,First,Denmark,10,3579,26,Female,33,4
+Angry,Sad,Partner,Afternoon,Sunny,Home,Winter,Weekend,Decision,Neutral,Ill,First,Denmark,10,3788,26,Female,33,2
+Neutral,Neutral,Alone,Afternoon,Sunny,Home,Winter,Weekend,Given,Neutral,Ill,First,Denmark,10,3795,26,Female,33,2
+Happy,Surprised,Alone,Night,Rainy,Home,Winter,Weekend,Given,Neutral,Healthy,First,Denmark,10,3816,26,Female,33,5
+Neutral,Neutral,Alone,Night,Sunny,Home,Winter,Weekend,Given,Positive,Healthy,Nth,Denmark,10,3826,26,Female,33,5
+Sad,Sad,Partner,Evening,Cloudy,Home,Winter,Holiday,Given,Neutral,Healthy,First,Denmark,10,3827,26,Female,33,5
+Happy,Sad,Partner,Evening,Cloudy,Public,Winter,Weekend,Decision,Positive,Healthy,First,Denmark,10,3825,26,Female,33,5
+Neutral,Disgusted,Alone,Evening,Sunny,Home,Spring,Working,Given,Neutral,Healthy,First,Denmark,10,3893,26,Female,33,4
+Happy,Happy,Partner,Morning,Sunny,Home,Spring,Weekend,Given,Neutral,Healthy,First,Denmark,10,2994,26,Female,33,5
+Happy,Sad,Partner,Evening,Sunny,Home,Spring,Holiday,Decision,Positive,Healthy,First,Denmark,10,3787,26,Female,33,4
+Sad,Sad,Alone,Afternoon,Sunny,Home,Spring,Weekend,Given,Neutral,Ill,First,Denmark,10,3944,26,Female,33,4
+Angry,Neutral,Alone,Afternoon,Sunny,Home,Spring,Weekend,Given,Neutral,Ill,First,Denmark,10,3945,26,Female,33,1
+Neutral,Sad,Alone,Evening,Rainy,Home,Spring,Weekend,Given,Neutral,Healthy,First,Denmark,10,3995,26,Female,33,4
+Happy,Happy,Partner,Evening,Rainy,Public,Summer,Weekend,Decision,Positive,Healthy,First,Denmark,10,4007,26,Female,33,4
+Neutral,Neutral,Partner,Evening,Sunny,Home,Summer,Working,Given,Neutral,Healthy,First,Denmark,10,4042,26,Female,33,2
+Sad,Surprised,Partner,Evening,Sunny,Home,Summer,Working,Decision,Positive,Healthy,First,Denmark,10,4038,26,Female,33,3
+Neutral,Happy,Partner,Evening,Sunny,Friend,Summer,Holiday,Decision,Positive,Healthy,First,Denmark,10,4043,26,Female,33,4
+Neutral,Surprised,Partner,Evening,Sunny,Home,Summer,Working,Decision,Positive,Healthy,First,Denmark,10,4032,26,Female,33,4
+Neutral,Neutral,Alone,Afternoon,Sunny,Home,Summer,Working,Given,Neutral,Healthy,First,Denmark,10,4044,26,Female,33,3
+Happy,Surprised,Alone,Evening,Sunny,Home,Summer,Working,Given,Positive,Healthy,First,Denmark,10,4052,26,Female,33,4
+Neutral,Neutral,Partner,Night,Sunny,Home,Autumn,Working,Decision,Neutral,Ill,First,Denmark,10,4064,26,Female,33,2
+Angry,Sad,Partner,Evening,Sunny,Home,Summer,Weekend,Decision,Positive,Healthy,First,Denmark,10,84,26,Female,33,4
+Neutral,Neutral,Alone,Night,Sunny,Home,Autumn,Weekend,Given,Neutral,Ill,First,Denmark,10,4067,26,Female,33,2
+Neutral,Neutral,Alone,Evening,Sunny,Home,Autumn,Working,Decision,Positive,Healthy,First,Denmark,10,4079,26,Female,33,1
+Happy,Happy,Partner,Evening,Sunny,Home,Autumn,Weekend,Decision,Positive,Healthy,First,Denmark,10,4078,26,Female,33,3
+Neutral,Happy,Partner,Evening,Sunny,Friend,Autumn,Holiday,Decision,Positive,Healthy,First,Denmark,10,4098,26,Female,33,2
+Happy,Sad,Partner,Night,Sunny,Friend,Autumn,Holiday,Decision,Neutral,Healthy,First,Denmark,10,94,26,Female,33,5
+Neutral,Neutral,Public,Evening,Sunny,Public,Autumn,Holiday,Given,Positive,Healthy,First,Denmark,10,4099,26,Female,33,3
+Surprised,Surprised,Partner,Night,Sunny,Home,Winter,Working,Given,Positive,Healthy,First,Denmark,10,4148,26,Female,33,3
+Happy,Happy,Friends,Afternoon,Sunny,Friend,Winter,Holiday,Given,Positive,Healthy,First,Denmark,10,4176,26,Female,33,4
+Neutral,Neutral,Partner,Evening,Cloudy,Home,Winter,Weekend,Given,Positive,Healthy,Nth,Denmark,10,4110,26,Female,33,3
+Surprised,Scared,Friends,Evening,Sunny,Friend,Winter,Holiday,Decision,Positive,Healthy,First,Denmark,10,4177,26,Female,33,4
+Neutral,Neutral,Partner,Evening,Cloudy,Home,Winter,Weekend,Decision,Neutral,Healthy,First,Denmark,10,4119,26,Female,33,4
+Neutral,Neutral,Alone,Afternoon,Cloudy,Home,Winter,Working,Given,Positive,Healthy,Nth,Denmark,10,31,26,Female,33,2
+Disgusted,Happy,Friends,Evening,Sunny,Public,Winter,Weekend,Decision,Positive,Healthy,First,Denmark,10,4188,26,Female,33,5
+Neutral,Neutral,Partner,Night,Sunny,Home,Winter,Weekend,Given,Positive,Healthy,First,Denmark,10,4193,26,Female,33,1
+Neutral,Neutral,Partner,Evening,Sunny,Home,Winter,Working,Decision,Negative,Healthy,First,Denmark,10,4196,26,Female,33,3
+Happy,Sad,Partner,Evening,Cloudy,Home,Winter,Working,Decision,Positive,Healthy,First,Denmark,10,4232,26,Female,33,5
+Happy,Scared,Partner,Evening,Cloudy,Home,Winter,Weekend,Given,Positive,Healthy,Nth,Denmark,10,3588,26,Female,33,4
+Neutral,Surprised,Partner,Evening,Sunny,Home,Spring,Weekend,Given,Positive,Healthy,First,Denmark,10,155,26,Female,33,3
+Sad,Surprised,Partner,Evening,Sunny,Home,Spring,Working,Decision,Positive,Healthy,First,Denmark,10,4295,26,Female,33,5
+Neutral,Neutral,Alone,Evening,Sunny,Home,Spring,Weekend,Given,Neutral,Healthy,First,Denmark,10,4284,26,Female,33,2
+Happy,Happy,Partner,Evening,Sunny,Home,Spring,Working,Given,Negative,Healthy,First,Denmark,10,4297,26,Female,33,4
+Neutral,Neutral,Alone,Morning,Rainy,Friend,Spring,Holiday,Given,Positive,Healthy,First,Denmark,10,4298,26,Female,33,2
+Neutral,Neutral,Partner,Evening,Cloudy,Home,Spring,Holiday,Given,Positive,Healthy,First,Denmark,10,4299,26,Female,33,1
+Happy,Happy,Partner,Night,Rainy,Home,Spring,Weekend,Decision,Positive,Healthy,First,Denmark,10,3635,26,Female,33,5
+Happy,Neutral,Friends,Evening,Sunny,Home,Spring,Weekend,Decision,Neutral,Healthy,First,Denmark,10,4151,26,Female,33,3
+Sad,Surprised,Alone,Night,Sunny,Home,Summer,Working,Given,Neutral,Ill,First,Denmark,10,4361,26,Female,33,5
+Neutral,Neutral,Public,Evening,Sunny,Public,Summer,Holiday,Decision,Positive,Healthy,First,Denmark,10,4379,26,Female,33,3
+Neutral,Neutral,Public,Night,Sunny,Public,Summer,Holiday,Decision,Neutral,Healthy,First,Denmark,10,4370,26,Female,33,1
+Sad,Sad,Public,Night,Sunny,Public,Summer,Holiday,Decision,Positive,Healthy,First,Denmark,10,4371,26,Female,33,1
+Neutral,Neutral,Partner,Morning,Sunny,Home,Summer,Holiday,Given,Neutral,Ill,First,Denmark,10,4377,26,Female,33,3
+Surprised,Neutral,Partner,Night,Sunny,Home,Summer,Holiday,Given,Positive,Healthy,First,Denmark,10,2240,26,Female,33,4
