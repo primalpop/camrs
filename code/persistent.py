@@ -59,7 +59,7 @@ def remove_for_testing(udb, user):
 	#print len(train_udb[user]), len(test_udb[user]), len(udb[user])
 	return train_udb, test_udb
 	
-def main(user=15, filters=None):
+def main(user=193, filters=None):
 	df = pd.read_csv('../datasets/LDOS-CoMoDa.csv', na_values=['-1'])
 	userprofile = buildUserProfile() 
 	#Replacement of missing values using the mean of the available values.
@@ -85,7 +85,7 @@ def main(user=15, filters=None):
 	print "precision before: ", precision_train,
 	print "recall before:", recall_train, 
 	print "f1 score: ", f1score(precision_train, recall_train)
-	filters = [(11, 1), (12, 2), (13,1), (16,1), (15, 1), (10, 2)]
+	filters = [(8, 2), (5, 1), (9, 2), (10, 2), (6, 1), (16, 1), (13, 1), (7, 1), (14, 1), (12, 1), (11, 1)]
 	filter_recs = contextual_filter(udb, userprofile, user, recs, filters)
 	precision_test, recall_test = precision(user, filter_recs, test_udb), recall(user, filter_recs, test_udb)
 	print "precision after: ", precision_test,  
