@@ -5,10 +5,10 @@ import pdb
 
 #For indexing the movie rating from the user dictionary
 RATING = 0
-OPTIMUM = 4.0
+OPTIMUM = 3.5
 feature_dict = {
-'age' : 1, 'sex': 2, 'city' : 3, 'country' : 4, 
-'time' : 5, 'daytype' : 6 , 'season' : 7, 
+'rating': 0, 'age' : 1, 'sex': 2, 'city' : 3, 
+'country' : 4, 'time' : 5, 'daytype' : 6 , 'season' : 7, 
 'location' : 8, 'weather' : 9, 'social' : 10, 
 'endEmo' : 11, 'dominantEmo' : 12, 'mood' : 13,
 'physical' : 14, 'decision' : 15, 'interaction' :16
@@ -67,8 +67,6 @@ def main(user=15, filters=None):
 		mean = df[c].mean()
 		df[c].fillna(mean)		
 	#Storing in a dictionary	
-	N = df.shape[0] #Number of training samples
-	train_len = int(N * 2/3.0)
 	udb = AutoVivification() #data-store for [userid][itemid] for training
 	mdb = {} #moviedatabase
 	"""
@@ -85,7 +83,7 @@ def main(user=15, filters=None):
 	recs =  get_recommendations(train_udb, user)
 	print "precision before: ", precision(user, recs, test_udb)
 	print "recall before:", recall(user, recs, test_udb)
-	filters = [(13, 3), (14, 5), (18, 1), (15, 2), (9, 2)]
+	filters = [(11, 1), (12, 2), (13,1), (16,1), (15, 1), (10, 2)]
 	filter_recs = contextual_filter(udb, userprofile, user, recs, filters)
 	print "precision after: ",precision(user, filter_recs, test_udb)
 	print "recall after:", recall(user, filter_recs, test_udb)
@@ -155,8 +153,7 @@ def get_recommendations(prefs, person, similarity=sim_euclidean):
 				totals[item] += prefs[other][item][RATING] * sim
 				#Similarity sums
 				simSum.setdefault(item, 0)
-				simSum[item] += sim		
-#	import pdb; pdb.set_trace()	
+				simSum[item] += sim			
 	rankings = [(total/simSum[item], item) for item,total in totals.items()]
 	#Testing: Checking if ratings match with that in dataset
 	rankings.sort()
@@ -200,7 +197,7 @@ def precision(user, recommendations, udb):
 	tp = 0
 	for (x, y) in recommendations:
 		for movie in udb[user].keys():
-			if movie == y and udb[user][movie][RATING] == round(x): #TODO: + - 2 for rating value
+			if movie == y and (round(x) - 1 <= udb[user][movie][RATING] <= round(x) + 1): #TODO: + - 2 for rating value
 				tp += 1
 	#print tp, all				
 	return tp/float(all)
@@ -210,7 +207,7 @@ def recall(user, recommendations, udb):
 	tp = 0
 	good_movies = 0
 	for movie in udb[user].keys():
-		if udb[user][movie][RATING] >= OPTIMUM:
+		if  OPTIMUM + 1 >= udb[user][movie][RATING] >= OPTIMUM - 1:
 				good_movies += 1		
 				for (x, y) in recommendations:
 					if movie == y:
