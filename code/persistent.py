@@ -81,12 +81,16 @@ def main(user=15, filters=None):
 
 	train_udb, test_udb = remove_for_testing(udb, user)
 	recs =  get_recommendations(train_udb, user)
-	print "precision before: ", precision(user, recs, test_udb)
-	print "recall before:", recall(user, recs, test_udb)
+	precision_train, recall_train = precision(user, recs, test_udb), recall(user, recs, test_udb)
+	print "precision before: ", precision_train,
+	print "recall before:", recall_train, 
+	print "f1 score: ", f1score(precision_train, recall_train)
 	filters = [(11, 1), (12, 2), (13,1), (16,1), (15, 1), (10, 2)]
 	filter_recs = contextual_filter(udb, userprofile, user, recs, filters)
-	print "precision after: ",precision(user, filter_recs, test_udb)
-	print "recall after:", recall(user, filter_recs, test_udb)
+	precision_test, recall_test = precision(user, filter_recs, test_udb), recall(user, filter_recs, test_udb)
+	print "precision after: ", precision_test,  
+	print "recall after:", recall_test, 
+	print "f1 score after: ", f1score(precision_test, recall_test)
 
 # Returns a distance-based similarity score for user1 and user2
 def sim_euclidean(udb, user1, user2):
@@ -212,7 +216,10 @@ def recall(user, recommendations, udb):
 				for (x, y) in recommendations:
 					if movie == y:
 						tp += 1				
-	return tp/float(good_movies)			
+	return tp/float(good_movies)	
+
+def f1score(precision, recall):
+	return 2 * (precision * recall)/(precision + recall)			
 
 if __name__ == "__main__":
 	import sys
