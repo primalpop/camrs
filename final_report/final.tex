@@ -205,7 +205,6 @@ Information gain helps bias the decision making process by considering features 
 
 \subsubsection{Clustering}
 
-
 \subsection{Contextual filtering}
 In this module, we refine the results provided by the Collaborative Filtering system, based on the filtered context features from the previous step. The user enters a set of attributes describing his context which would act as the filters. Contextual Filter procedure takes the following as input.
 
@@ -237,7 +236,7 @@ In this module, we refine the results provided by the Collaborative Filtering sy
 \end{algorithmic}
 \end{algorithm}
 
-%These contextual features are compared with the user profile built in the previous step. For every (movie, rating) recommendation pair %from collaborative filtering, we check if the rating is higher than an optimum value (For our dataset, we chose 4, since that was the %average rating for a "good" movie). If there is a possible match, the (movie, rating) combination is appended to the set of final %recommendations to be provided to the user. These recommendations are not only based on the similarity in tastes between users, but also %customized for the user based on his context.
+The $findAvgContext$ procedure finds the average context of a specific movie when rating is high over all users. If this context is equal to the context entered by the user, this is added to the filtered recommendations.
 
 \section{Intuition}
 
