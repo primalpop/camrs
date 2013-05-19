@@ -1,12 +1,12 @@
-15: [endEmo,dominantEmo,interaction,mood,season,weather,daytype,time,social,decision,location,physical] 
-21: [endEmo,dominantEmo,season,weather,time,mood,interaction,decision,social,daytype,location,physical] 
-25: [endEmo,dominantEmo,daytype,time,season,social,decision,weather,mood,location,physical,interaction] 
-26: [dominantEmo,endEmo,social,mood,decision,location,weather,interaction,daytype,time,physical,season] 
-31: [dominantEmo,endEmo,mood,time,social,daytype,weather,season,physical,location,decision,interaction] 
-33: [endEmo,dominantEmo,social,time,weather,location,season,daytype,decision,mood,physical,interaction] 
-35: [endEmo,dominantEmo,season,social,weather,physical,time,location,mood,daytype,interaction,decision] 
-50: [endEmo,dominantEmo,social,weather,season,decision,time,mood,physical,location,daytype,interaction] 
-55: [endEmo,dominantEmo,interaction,daytype,season,weather,time,decision,social,location,mood] 
-61: [endEmo,dominantEmo,weather,social,season,mood,interaction,daytype,time,location,physical,decision] 
-75: [dominantEmo,endEmo,time,daytype,mood,interaction,season,weather,sex] 
-193: [location,time,weather,social,daytype,interaction,mood,season,physical,dominantEmo,endEmo,sex] 
+15,endEmo,dominantEmo,interaction,mood,season,weather,daytype,time,social,decision,location,physical
+21,endEmo,dominantEmo,season,weather,time,mood,interaction,decision,social,daytype,location,physical
+25,endEmo,dominantEmo,daytype,time,season,social,decision,weather,mood,location,physical,interaction
+26,dominantEmo,endEmo,social,mood,decision,location,weather,interaction,daytype,time,physical,season
+31,dominantEmo,endEmo,mood,time,social,daytype,weather,season,physical,location,decision,interaction
+33,endEmo,dominantEmo,social,time,weather,location,season,daytype,decision,mood,physical,interaction
+35,endEmo,dominantEmo,season,social,weather,physical,time,location,mood,daytype,interaction,decision
+50,endEmo,dominantEmo,social,weather,season,decision,time,mood,physical,location,daytype,interaction
+55,endEmo,dominantEmo,interaction,daytype,season,weather,time,decision,social,location,mood
+61,endEmo,dominantEmo,weather,social,season,mood,interaction,daytype,time,location,physical,decision
+75,dominantEmo,endEmo,time,daytype,mood,interaction,season,weather
+193,location,time,weather,social,daytype,interaction,mood,season,physical,dominantEmo,endEmo
