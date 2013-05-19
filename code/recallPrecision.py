@@ -20,10 +20,10 @@ def _fmeasureCurve(f, p):
         for a given fixed f value we get the function:"""
     return f * p / (2 * p - f)
 
-def _plotFMeasures(fstepsize=.1, stepsize=0.001):
+def _plotFMeasures(fstepsize=.01, stepsize=0.0001):
     """ Plots 10 fmeasure Curves into the current canvas. """
-    p = sc.arange(0., 1., stepsize)[1:] #@UndefinedVariable
-    for f in sc.arange(0., 1., fstepsize)[1:]: #@UndefinedVariable
+    p = sc.arange(0.001, 0.09, stepsize)[1:] #@UndefinedVariable
+    for f in sc.arange(0.001, 0.09, fstepsize)[1:]: #@UndefinedVariable
         points = [(x, _fmeasureCurve(f, x)) for x in p
                               if 0 < _fmeasureCurve(f, x) <= 1.5 ]
         xs, ys = zip(*points)
@@ -59,6 +59,8 @@ def plotPrecisionRecallDiagram(title="title", points=None, labels=None, loc="cen
         ax = pl.axes([0.1, 0.1, 0.7, 0.8]) # llc_x, llc_y, width, height
     else:
         ax = pl.gca()
+    ax.set_xlim([0,0.1])
+    ax.set_ylim([0,0.1])
     pl.title(title)
     pl.xlabel("Precision")
     pl.ylabel("Recall")
@@ -89,4 +91,5 @@ def plotPrecisionRecallDiagram(title="title", points=None, labels=None, loc="cen
 if __name__ == '__main__':
     #plotPrecisionRecallDiagram(points=[(0.9,0.95), (0.9,0.6), (0.7,0.9), (0.25,0.9)], labels=["foaf 0.5", "foaf 0.75", "foaf 0.25", "bar"])
     plotPrecisionRecallDiagram("footitle", sc.rand(15,2),  ["item " + str(i) for i in range(15)])
+    pl.savefig("PrecBegin.png", dpi=300)
     pl.show()
