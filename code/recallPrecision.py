@@ -56,7 +56,8 @@ def plotPrecisionRecallDiagram(title="title", points=None, labels=None, loc="cen
         Optionally you can also provide a labels (list of strings), which will be
         used to create a legend, which is located at loc."""
     if labels != None:
-        ax = pl.axes([0.1, 0.1, 0.7, 0.8]) # llc_x, llc_y, width, height
+        ax = pl.axes([0.1, 0.1, 0.7, 0.8])
+        #pl.axes([0.1, 0.1, 0.7, 0.8]) # llc_x, llc_y, width, height
     else:
         ax = pl.gca()
     ax.set_xlim([0,0.1])
