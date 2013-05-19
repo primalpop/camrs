@@ -6,6 +6,17 @@ import pdb
 #For indexing the movie rating from the user dictionary
 RATING = 0
 OPTIMUM = 4.0
+feature_dict = {
+'userID' : 0, 'itemID' : 1, 'rating' : 2, 
+'age' : 3, 'sex': 4, 'city' : 5, 'country' : 6, 
+'time' : 7, 'daytype' : 8 , 'season' : 9, 
+'location' : 10, 'weather' : 11, 'social' : 12, 
+'endEmo' : 13, 'dominantEmo' : 14, 'mood' : 15,
+'physical' : 16, 'decision' : 17, 'interaction' :18,
+'director' : 19, 'movieCountry' : 20, 'movieLanguage' : 21,
+'movieYear' : 22, 'genre1' : 23, 'genre2': 24, 'genre3': 25,
+'actor1' :26 ,'actor2' : 27 ,'actor3':28,'budget': 29	
+}
 
 class AutoVivification(dict):
 	#Ref: http://stackoverflow.com/questions/651794/whats-the-best-way-to-initialize-a-dict-of-dicts-in-python
@@ -30,7 +41,7 @@ def buildUserProfile(filename):
 	Builds a dictionary of User Profiles by parsing through the file
 	{user1: c1, c2, c5, c6}
 	"""
-	pass
+	
 
 def remove_for_testing(udb, user):
 	limit = int(len(udb[user])/3.0)
