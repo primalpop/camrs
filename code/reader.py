@@ -6,7 +6,7 @@ from sklearn.ensemble import ExtraTreesClassifier
 
 import pdb
 
-train=csv.reader(open('datasets/train.csv','rb')) #open file
+train=csv.reader(open('../datasets/train.csv','rb')) #open file
 headerx=train.next()
 
 x=[]
@@ -20,7 +20,7 @@ for row in train:
 	#pdb.set_trace()
 x=np.array(x)
 
-category=csv.reader(open('datasets/target.csv','rb')) #open file
+category=csv.reader(open('../datasets/target.csv','rb')) #open file
 headery=category.next()
 
 y=[]
@@ -33,10 +33,10 @@ for row in category:
 	y.append(row)
 y=np.array(y)
 
-clf=LinearSVC()
-clf = clf.fit(x,y)
+#clf=LinearSVC()
+#clf = clf.fit(x,y)
 
-test=csv.reader(open('datasets/test.csv','rb'))
+test=csv.reader(open('../datasets/test.csv','rb'))
 headert=test.next()
 new=[]
 for row in test:
@@ -47,7 +47,7 @@ new=np.array(new).astype(np.float)
 #print resultset
 #np.savetxt('results.csv',resultset,delimiter=",")
 
-cR = chi2(x, y)
+#cR = chi2(x, y)
 
 # Build a forest and compute the feature importances
 forest = ExtraTreesClassifier(n_estimators=250,
@@ -65,13 +65,3 @@ print "Feature ranking:"
 
 for f in xrange(10):
     print "%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]])
- 
-# Plot the feature importances of the forest
-import pylab as pl
-pl.figure()
-pl.title("Feature importances")
-#pl.bar(xrange(10), importances[indices],
-#       color="r", yerr=std[indices], align="center")
-pl.xticks(xrange(10), indices)
-pl.xlim([-1, 10])
-pl.show() 
