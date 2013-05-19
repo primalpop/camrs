@@ -1,0 +1,47 @@
+15:
+precision before:  0.0273556231003 recall before: 0.645161290323 f1 score:  0.0524857850999
+precision after:  0.0185497470489 recall after: 0.258064516129 f1 score after:  0.0346116027532
+
+21:
+precision before:  0.0279383429672 recall before: 0.709677419355 f1 score:  0.053760269644
+precision after:  0.0281690140845 recall after: 0.451612903226 f1 score after:  0.0530303030303
+
+25:
+precision before:  0.00886699507389 recall before: 0.526315789474 f1 score:  0.0174401705261
+precision after:  0.0117845117845 recall after: 0.473684210526 f1 score after:  0.022996897244
+
+26:
+precision before:  0.0140845070423 recall before: 0.652173913043 f1 score:  0.0275735294118
+precision after:  0.0172413793103 recall after: 0.478260869565 f1 score after:  0.0332829046899
+
+31:
+precision before:  0.0317297850563 recall before: 0.685714285714 f1 score:  0.0606529980027
+precision after:  0.0398009950249 recall after: 0.571428571429 f1 score after:  0.0744186046512
+
+33:
+precision before:  0.0179640718563 recall before: 0.8125 f1 score:  0.0351509689049
+precision after:  0.0161290322581 recall after: 0.4375 f1 score after:  0.0311111111111
+
+35:
+precision before:  0.0115942028986 recall before: 0.52380952381 f1 score:  0.0226862593452
+precision after:  0.0108864696734 recall after: 0.285714285714 f1 score after:  0.0209737827715
+
+50:
+precision before:  0.0128205128205 recall before: 0.55 f1 score:  0.0250569476082
+precision after:  0.0172117039587 recall after: 0.45 f1 score after:  0.033155277215
+
+55:
+precision before:  0.0462487153135 recall before: 0.620689655172 f1 score:  0.0860832137733
+precision after:  0.0409836065574 recall after: 0.275862068966 f1 score after:  0.07136485281
+
+61:
+precision before:  0.0176579925651 recall before: 0.7 f1 score:  0.034447034447
+precision after:  0.0227272727273 recall after: 0.5 f1 score after:  0.0434782608696
+
+75:
+precision before:  0.0130718954248 recall before: 0.3 f1 score:  0.0250521920668
+precision after:  0.00389105058366 recall after: 0.0 f1 score after:  0.0
+
+193:
+precision before:  0.00381315538608 recall before: 0.8 f1 score:  0.00759013282732
+precision after:  0.00165289256198 recall after: 0.2 f1 score after:  0.00327868852459
