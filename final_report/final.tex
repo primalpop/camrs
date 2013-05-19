@@ -108,9 +108,30 @@ filtering, post-filtering, and modeling – for incorporating contextual informa
 Further, they discuss the possibilities of combining several context- aware recommendation techniques into a single unifying approach.
 
 \section{Proposed method}
-The proposed method for building the CAMR system is to initially build a simple recommendation system that does not take the context under consideration. This model will take a part of the dataset for training, and predict the recommendation (ranked based on rating) for the given test instance using cross-validation. The next phase will include establishing a correlation between the contextual attributes and the rest of the features for finding a trend for a contextually richer movie recommendation. The final step will be to filter the instances based on the context attributes and provide a recommendation. 
 
-Figure ~\ref{archdiag} shows the overall architecture of the recommendation system. The \textit{Data Model} represents the pre-processed dataset, where two separate dictionaries are maintained, indexed on the user ID and the movie ID respectively. Based on the similarity metric, calculated using Euclidean distance or the Pearson correlation, the user profiles similar to the test profile under consideration are selected. This subset is then passed onto the \textit{U x I} recommender which generates a recommendation of the movies selected for the active user from similar profiles. These recommendations are then passed through the filtering step, where the results are filtered based on the contextual attributes for the active user, thereby delivering a contextualized result in the form of a ranked list of movie recommendations. The block \textit{U} represent the active user profile for the recommender matrix and \textit{C} represents the context for the post-filtering step. The correlation metric helps refine the context attribute for the filtering approach. The following sections describe each of these steps.
+
+We followed the following steps in building the Context-Aware Movie Recommender(CAMR) system
+
+\begin{enumerate}
+\item Build a recommendation system based on collaborative filtering
+\item Compute the Information gain of various attributes per user and construct a User Profile with attributes in descending order of Information gain 
+\item Implement a contextual filter based on User Profile to filter the results given by the simple recommender system
+\item Use various feature selection methods over the entire dataset to identify important contextual attributes
+\item Use K-means clustering to identify the average attributes of instances with high rating
+\end{enumerate}
+
+
+The effectiveness of various steps mentioned above was evaluated using the following method.
+
+\begin{itemize}
+\item Number of ratings given by a specific user was computed 
+\item $2/3rd$ of the total ratings were used for training
+\item Rest of the $1/3rd$ were used for testing
+\item Precision, Recall and F1-Score metrics were computed on the testing set 
+\end{itemize}
+
+
+This model will take a part of the dataset for training, and predict the recommendation (ranked based on rating) for the given test instance using cross-validation. The next phase will include establishing a correlation between the contextual attributes and the rest of the features for finding a trend for a contextually richer movie recommendation. The final step will be to filter the instances based on the context attributes and provide a recommendation. 
 
 \begin{figure}[H]
 \centering
@@ -119,8 +140,18 @@ Figure ~\ref{archdiag} shows the overall architecture of the recommendation syst
 \label{archdiag}
 \end{figure}
 
+Figure ~\ref{archdiag} shows the overall architecture of the recommendation system. The \textit{Data Model} represents the pre-processed dataset where the dataset is read from a csv file and stored into two separate data stores corresponding to user and movie attributes respectively. Based on the similarity metric, other users who have given similar ratings to the user under consideration were found out.     The two similarity metrics used were
+
+\begin{itemize}
+\item Euclidean distance 
+\item Pearson correlation
+\end{itemize}
+
+
+The results from previous step were used in Collaborative Filtering which generates a recommendation of the movies for given user by looking at other users who have similar tastes. These recommendations are then passed through the contextual filtering step, where the results are filtered based on contextual attributes(user-specific or general) computed using different methods. After this step a contextualized result in the form of a ranked list of movie recommendations is obtained. The block \textit{U} represent the active user under consideration for the recommender system and \textit{C} represents the context for the contextual-filtering step. The correlation metric helps refine the context attribute for the filtering approach. The following sections describe in detail each of these steps.
+
 \subsection{Dataset}
-We plan to use the LDOS - CoMoDa dataset \cite{kovsir2011database}, made available by Dr. Andrej Kosir from the University of Ljubljana, Slovenia. The LDOS - CoMoDa dataset is a context-rich movie recommender dataset, which contains ratings for movies along with contextual information describing the situations in which the movies were watched. 
+We used the LDOS - CoMoDa dataset \cite{kovsir2011database}, made available by Dr. Andrej Kosir from the University of Ljubljana, Slovenia. The LDOS - CoMoDa dataset is a context-rich movie recommender dataset, which contains ratings for movies along with contextual information describing the situations in which the movies were watched. 
 It contains 30 variables among which are 12 contextual variables. The attributes can be classified as:
 \begin{enumerate}
 \item \emph{User Attributes}: ID, Sex, Age, City, Country
@@ -129,11 +160,9 @@ It contains 30 variables among which are 12 contextual variables. The attributes
 \end{enumerate}
 The value for each non-numerical discrete attribute is represented with a distinct number. The training instances for the recommendation system consists of the user, movie and context attributes for a single user and the corresponding rating associated with it. A single user can have multiple ratings, indicating he has rated more than one movie. The dataset consists of 2296 instances (ratings), with 121 unique users. 
 
-\subsection{Simple recommendation system}
-In the simple recommendation system, the contextual attributes for user profiles are ignored. Considering the user's attributes and the movie features (including the rating), the model calculates the similarity score between pairs of users. This score was initially calculated by a simple Euclidean distance metric and later replaced by the Pearson correlation co-efficient. The result obtained was inverted after adding 1(so as to avoid division by zero). Therefore higher values meant people are more similar than people with lower values. Based on this similarity score, the active user (the test instance) will be recommended movies from the users with a high similarity score with it. The recommendation is based on a ranked list of movies. The ranking is a function of the rating and the similarity score among the active user and the users having higher similarity scores. This step of collaborative filtering helps in the further modules for recommending movies which are unseen (not rated) by the user. 
+\subsection{Cleaning the data}
 
-%\subsubsection{Dictionaries}
-Firstly the LDOS-CoMoDa dataset was converted into csv format to make it easy for parsing. The dataset is read and stored in pandas dataframe \footnote{http://pandas.pydata.org/} object replacing all the missing values(-1) using the mean of the available values. We maintain two separate dictionaries for user attributes (indexed by the user ID) and movie attributes (indexed by the movie ID). The movie attributes are mapped to individual users by the movie ID, as part of the values associated with each user instance. The structure of these dictionaries are given below.
+The LDOS-CoMoDa dataset was converted into csv format to make it easy for parsing. The dataset is read and stored in pandas dataframe \footnote{http://pandas.pydata.org/} object replacing all the missing values(-1) using the mean of the available values. We maintain two separate dictionaries for user attributes (indexed by the user ID) and movie attributes (indexed by the movie ID). The movie attributes are mapped to individual users by the movie ID, as part of the values associated with each user instance. The structure of these dictionaries are given below.
 
 users = 
 	{userid: 
@@ -157,15 +186,30 @@ items =
 		language, 
 		country}}
 $c_{i}$ denote contextual attributes.
-%\subsubsection{Ranked list of recommendations}
 
-\subsection{Correlation between context attributes}
-The second step involves establishing a correlation among the contextual attributes and the attributes of a movie, as well as features related to the user. This helps determine the relevance of the contextual attribute for the movie recommendation to the user. This step helps in the process of selecting attributes which would be later used for post-filtering, thereby providing refined results. Based on experimentation, we establish a relationship among different contextual, user and movie attributes. The attributes that provide a better insight on the recommendation, based on their specific combinations and values, are more relevant in post-filtering. 
+\subsection{Collaborative Filtering}
+In Collaborative Filtering, the recommendations are generated based on a user and her previous movie ratings. First step in the process is to compute the similarity score to estimate users who are most similar to the given user. Higher values of similarity score meant that pair of users under consideration were similar. After finding out the users with similar tastes, we sorted them in descending order so as to obtain a ranked list of similar users. To generate recommendation the items were scored by producing a weighted score that
+ranks the users. The movie ratings of the other similar users were multiplied with the similarity score to obtain the weighted score for each unseen movie. These were returned in descending order of the weighted score as recommendation. \cite{segaran2008programming}  
 
-Information gain helps bias the decision making process against considering features that not relevant. Information gain is particularly effective, since the attributes in LDOS-CoMoDa are primarily nominal and take up a finite (small) set of values. Based on the information gain, we can understand the importance of specific contextual attributes on the user's preference, and their subsequent influence on the movie ratings. We built a user profile for every user in the dataset, based on the context attributes with the highest information gain. This calculation was done on the basis of the ratings given for a movie watched by the user, under the context features described for the same.
+\subsection{Building the User Profile}
 
-\subsection{Contextual filtering: Refining the recommendations}
-In this module, we refine the results provided by the \emph{User * Item} matrix from the simple recommendation system, based on the filtered context features from the previous step. The model generates a recommendation of movies for a particular test user instance. A single test instance is a user profile, for which a third of the total set of movie ratings that were present are removed. The recommendation process starts when the user enters a set of attributes describing his context. These contextual features are compared with the user profile built from collaborative filtering and information gain calculation steps. For every (movie, rating) recommendation pair from collaborative filtering, we check if the rating is higher than an optimum value (For our dataset, we chose 4, since that was the average rating for a "good" movie). If there is a possible match, the (movie, rating) combination is appended to the set of final recommendations to be provided to the user. These recommendations are not only based on the similarity in tastes between users, but also customized for the user based on his context.
+A User Profile consists of contextual attributes which are used for contextual filtering of recommendations. The following methods were used for finding out the significant contextual attributes.
+
+\subsubsection{Feature Selection}
+
+The first method was used to find out existence of important contextual features for the entire dataset. These features might help in boosting the performance of recommender systems. Forest of trees were used to evaluate the importance of features in the dataset. Tree-based estimators from the sklearn.tree module and forest of trees in the sklearn.ensemble module were used for the purpose. Univariate chi2 feature selection was also tried for the purpose but didn't give *interpretable* results. 
+
+\subsubsection{Information Gain}
+
+Information gain helps bias the decision making process by considering features that are relevant. Information gain is particularly effective, since the attributes in LDOS-CoMoDa are primarily nominal and take up a finite (small) set of values. The ratings given by each user were considered in isolation for computing the information gain of each attribute. Compared to the first method, this method a tailored set of attributes specific to each user. We built a user profile for every user in the dataset, based on the context attributes with the highest information gain. This calculation was done on the basis of the ratings given for a movie watched by the user, under the context features described for the same.
+
+\subsubsection{Clustering}
+
+
+\subsection{Contextual filtering}
+In this module, we refine the results provided by the Collaborative Filtering system, based on the filtered context features from the previous step. The model generates a recommendation of movies for a particular test user instance. A single test instance is a user profile, for which a third of the total set of movie ratings that were present are removed. The recommendation process starts when the user enters a set of attributes describing his context. These contextual features are compared with the user profile built in the previous step. For every (movie, rating) recommendation pair from collaborative filtering, we check if the rating is higher than an optimum value (For our dataset, we chose 4, since that was the average rating for a "good" movie). If there is a possible match, the (movie, rating) combination is appended to the set of final recommendations to be provided to the user. These recommendations are not only based on the similarity in tastes between users, but also customized for the user based on his context.
+
+\section{Intuition}
 
 \section{Experiments}
 Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This information and further demographics on the dataset will be calculated. These demographics will help identify the correlation not only between the contextual attributes and the movie's ratings, but also include user profiles. For example, it was observed that when the dominant mood was "Happy", the overall ratings, regardless of the other attributes, were high (ranging from 4 to 5). This sets up a correlation, of the contextual attribute modeling the mood of the user, to be a significant parameter for recommending a movie with higher rating. The number of ratings per user and per item have also been analyzed and are added to the Appendix.
