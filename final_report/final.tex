@@ -285,7 +285,7 @@ The recall measures the ratio of good movies that were recommended from the tota
 \begin{equation}
 recall (per user) = \frac{\text{Good movies recommended }}{\text{Total number of good movies}}
 \end{equation}
- The F1 score is another metric to evaluate accuracy.  It considers both precision and recall measures of a test to compute the score. In recommendation systems, it is considered a single value obtained combining both the precision and recall measures and indicates an overall utility of the recommendation list.\foonote{http://aimotion.blogspot.com/2011/05/evaluating-recommender-systems.html}
+ The F1 score is another metric to evaluate accuracy.  It considers both precision and recall measures of a test to compute the score. In recommendation systems, it is considered a single value obtained combining both the precision and recall measures and indicates an overall utility of the recommendation list.\footnote{http://aimotion.blogspot.com/2011/05/evaluating-recommender-systems.html}
 \begin{equation}
 F1 score = 2 * \frac{precision * recall}{precision + recall}
 \end{equation}
@@ -304,16 +304,15 @@ F1 score = 2 * \frac{precision * recall}{precision + recall}
  The LDOS-CoMoDa dataset was split into training and test sets. The training data was initially passed through the collaborative filtering step. Each (movie, rating) pair in the list of generated recommendations is then compared with the movies and subsequent ratings in the test dataset. The comparisons with a $\pm$1 difference in rating are considered as a match. Using this metric, the precision for each user in the test dataset was calculated over the list of all recommendations, and was found to be in the range of 0.02 and 0.05. For the recall measure, the ratio of the list of matched ratings was compared with the total list of "good" movies. A "good" movie was considered to be one having an average rating of 3-5. Further, the F1 score was calculated based on the observed precision and recall values per user, and was low due to lower values of precision. The observed values for recall were significant compared to the precision measure. Fig~\ref{precrecallbasic} demonstrates the precision, recall and F1 score for different users in the test dataset.
  %For each user in the test dataset, one-third of the movies already rated are removed. 
  
- \begin{figure}[H]
+\subsubsection{Precision Recall after Contextual Filtering}
+ The precision-recall and F1 scores for the recommendations, generated after filtering through contextual attributes with high information gain, were found to be lower than those with the simple recommendation process. Fig~\ref{precrecallig} shows the sample distribution over the test dataset. It was observed that addition of a proper subset of contextual attributes was increasing the recommendation accuracy. A possible explanation would be that the data collection for contextual attributes associated with each movie rating was incomplete. It was observed that for most rated movies, the context attributes were set to a default value. Hence there was no proper distribution of data across all possible values for a given contextual feature.
+
+\begin{figure}[H]
 \centering
 \includegraphics[height=2.5in, width=3.5in]{PrecRecallBasic.png}
 \caption{Precision Recall Metrics for simple recommendation}
 \label{precrecallbasic}
 \end{figure}
-
-\subsubsection{Precision Recall after Contextual Filtering}
- The precision-recall and F1 scores for the recommendations, generated after filtering through contextual attributes with high information gain, were found to be lower than those with the simple recommendation process. Fig~\ref{precrecallig} shows the sample distribution over the test dataset. It was observed that addition of a proper subset of contextual attributes was increasing the recommendation accuracy. A possible explanation would be that the data collection for contextual attributes associated with each movie rating was incomplete. It was observed that for most rated movies, the context attributes were set to a default value. Hence there was no proper distribution of data across all possible values for a given contextual feature.
-
 
 \begin{figure}[H]
 \includegraphics[height=2.5in, width=3.5in]{PrecRecallIG.png}
@@ -377,10 +376,9 @@ interaction & First    & First    & First   & First    & First    & First      \
 
 
 \section{Conclusions}
-The CAMR system demonstrates the usage of contextual information as a relevant set of features, when providing recommendations. The system not only incorporates user tastes with similar profiles and ratings, but also filters the recommendations based on the current context of the active user. The recommendations are improved by understanding the correlation metrics between features that affect the outcome of the movie ratings, and thereby altering the filtering approach. Identification of common contextual features among users and their influence on the movie ratings can be analyzed via training on decision trees based on the contextual features. Decision trees modeled for separate user profiles can be used to analyze the relationship of context on the rating as well as the selection of movies for recommendation. This recommender system can be extended to incorporate machine learning techniques such as a support vector machine (SVM). The SVM can help classify the set of liked and disliked items of a user in different contexts as classes and constructs a separating hyperplane which maximizes the separation between them. It also remains to be seen if the contextual attributes affect the movie selection or movie rating or both.
+The CAMR system demonstrates the usage of contextual information as a relevant set of features, when providing movie recommendations. The system not only incorporates user tastes with similar profiles and ratings, but also filters the recommendations based on the current context of the active user. The recommendations are improved by understanding the correlation metrics between features that affect the outcome of the movie ratings, and thereby altering the filtering approach. We analyzed the importance of context on the recommendation outcome, using techniques such as Information Gain, feature selection through forest of trees classification, and clustering of instances based on similar user profiles. We calculated the influence of these approaches on the recommendation process using precision-recall metrics. Based on our observations, we also identified the shortcomings in the LDOS-CoMoDa dataset, which can be overcome with detailed data collection especially for contextual attributes. Incorporating such rich set of contextual features from the dataset looks promising, and with adequate (complete) data, we can provide significant value addition to a movie recommender system.
 
-
-Incorporating such rich set of contextual features helps personalize a recommendation process, and provides value addition to a recommender system.
+ This recommender system can be extended to incorporate machine learning techniques such as a support vector machine (SVM). The SVM can help classify the set of liked and disliked items of a user in different contexts as classes and constructs a separating hyperplane which maximizes the separation between them. It also remains to be seen if the contextual attributes affect the movie selection or movie rating or both.
 
 \section{Appendix}
 
@@ -406,14 +404,14 @@ Incorporating such rich set of contextual features helps personalize a recommend
 \subsection{Dataset Analysis}
 
 \begin{figure}[H]
-
+\centering
 \includegraphics[height=2.5in, width=3.5in]{ratingsperuser.png}
 \caption{Ratings per user}
 \label{ruser}
 \end{figure}
 
 \begin{figure}[H]
-
+\centering
 \includegraphics[height=2.5in, width=3.5in]{ratungspermovie.png}
 \caption{Ratings per item}
 \label{ritem}
