@@ -277,11 +277,11 @@ Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This 
 \subsection{Precision/Recall of Contextual Filtering}
 An effective method to evaluate a recommender's suggestions, is to grade the quality of its estimated preference values. This involves measuring how closely the estimated preferences match the actual preferences of the user. In order to evaluate the accuracy of our recommender engine , we use a precision-recall measure where the predicted movie recommendations, and their respective ratings, are compared with the removed ratings. The precision metric finds the proportion of relevant movies from the list of (movie, rating) recommendation pairs. 
 \begin{equation}
-precision = \frac{\text{relevant recommendations}} {\text{total recommendations}}
+precision (per user) = \frac{\text{relevant (good) movies}} {\text{total recommended movies}}
 \end{equation} 
 The recall measures the proportion of movies that were recommended from the total list of all possible movies.
 \begin{equation}
-recall = \frac{\text{relevant recommendations}}{\text{total relevant movies}}
+recall (per user) = \frac{\text{relevant (good) movies }}{\text{total relevant movies}}
 \end{equation}
  The F1 score is another metric to evaluate accuracy.  It considers both precision and recall measures of a test to compute the score. In recommendation systems, it is considered a single value obtained combining both the precision and recall measures and indicates an overall utility of the recommendation list.\foonote{http://aimotion.blogspot.com/2011/05/evaluating-recommender-systems.html}
 \begin{equation}
@@ -292,7 +292,7 @@ F1 score = 2 * \frac{precision * recall}{precision + recall}
 \begin{enumerate} 
 \item Results based on the simple recommendation system
 \item Results filtered by the attributes selected through Information Gain
-\item The average feature values for each rating-based cluster through K-Means clustering
+\item The average feature values for each rating-based cluster through Extra Tree classifier
 \end{enumerate}
 
 \begin{figure}[H]
