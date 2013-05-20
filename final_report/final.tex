@@ -226,7 +226,7 @@ In this module, we refine the results provided by the Collaborative Filtering sy
    \IF{$rating$ >= {\bfseries OPTIMUM}} 
    \FOR{$context, value$ {\bfseries in} $filters$}
    \IF{$context$ {\bfseries in} $profiles_{user}$}
-   \STATE $avg$ = {\bfseries findAvgContext}($movie, context, udb$)
+   \STATE $avg$ = {\bfseries findContext}($movie, context, udb$)
    \IF{$avg == value$}
    \STATE $filteredRecommendations$ += $((rating, movie))$
    \ENDIF   
@@ -237,11 +237,11 @@ In this module, we refine the results provided by the Collaborative Filtering sy
 \end{algorithmic}
 \end{algorithm}
 
-The $findAvgContext$ procedure finds the average context of a specific movie when rating is high over all users. If this context is equal to the context entered by the user, this is added to the filtered recommendations.
+The $findContext$ procedure was implemented in two different ways. The first one($findAvgContext$) finds the average context of a specific movie with high rating, over all users. The second method ($findMaxContext$) finds the maximum repeating context for a high rating movie, over all users. Once the context has been computed by one of the above two methods, if this context is equal to the context entered by the user, the specific movie is added to the filtered recommendations.
 
 %\section{Intuition}
 
-\section{Experiments}
+\section{Experiments and Results}
 Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This information and further demographics on the dataset will be calculated. These demographics will help identify the correlation not only between the contextual attributes and the movie's ratings, but also include user profiles. For example, it was observed that when the dominant mood was "Happy", the overall ratings, regardless of the other attributes, were high (ranging from 4 to 5). This sets up a correlation, of the contextual attribute modeling the mood of the user, to be a significant parameter for recommending a movie with higher rating. The number of ratings per user and per item have also been analyzed and are added to the Appendix.
 
 \begin{table} [H]
@@ -274,14 +274,16 @@ Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This 
 	\vskip -0.1in
 \end{table}
 
-\subsection{Precision/Recall of Contextual Filtering}
-An effective method to evaluate a recommender's suggestions, is to grade the quality of its estimated preference values. This involves measuring how closely the estimated preferences match the actual preferences of the user. In order to evaluate the accuracy of our recommender engine , we use a precision-recall measure where the predicted movie recommendations, and their respective ratings, are compared with the removed ratings. The precision metric finds the proportion of relevant movies from the list of (movie, rating) recommendation pairs. 
+\subsection{Evaluation Metrics}
+An effective method to evaluate a recommender's suggestions, is to grade the quality of its estimated preference values. This involves measuring how closely the estimated preferences match the actual preferences of the user. In order to evaluate the accuracy of CAMRS , we use a precision-recall measure where the predicted movie recommendations, and their respective ratings, are compared with the movies in test set. \\
+
+The precision metric finds the proportion of relevant movies from the list of (movie, rating) recommendation pairs. Here a relevant movie   is the one which is present in the test set and has a rating similar to what is predicted by CAMRS.
 \begin{equation}
-precision (per user) = \frac{\text{relevant (good) movies}} {\text{total recommended movies}}
+precision (per user) = \frac{\text{Number of relevant movies}} {\text{Number of recommended movies}}
 \end{equation} 
-The recall measures the proportion of movies that were recommended from the total list of all possible movies.
+The recall measures the ratio of good movies that were recommended from the total list of all possible good movies. Here a good movie is the one which was given a high rating by the user under consideration.
 \begin{equation}
-recall (per user) = \frac{\text{relevant (good) movies }}{\text{total relevant movies}}
+recall (per user) = \frac{\text{Good movies recommended }}{\text{Total number of good movies}}
 \end{equation}
  The F1 score is another metric to evaluate accuracy.  It considers both precision and recall measures of a test to compute the score. In recommendation systems, it is considered a single value obtained combining both the precision and recall measures and indicates an overall utility of the recommendation list.\foonote{http://aimotion.blogspot.com/2011/05/evaluating-recommender-systems.html}
 \begin{equation}
@@ -290,26 +292,28 @@ F1 score = 2 * \frac{precision * recall}{precision + recall}
 
  We calculated the precision, recall and the F1 score metrics for the following 
 \begin{enumerate} 
-\item Results based on the simple recommendation system
-\item Results filtered by features selected with high Information Gain
-\item Results filtered by features selected through forest of trees classification approach
+\item Results based on the Collaborative Filtering
+\item Results filtered by contextual features selected with high Information Gain. Selection of value for the context filter was implemented in 2 ways
+\begin{enumerate}
+\item By finding average context 
+\item By finding maximum context
+\end{enumerate}
 \end{enumerate}
 
 \subsubsection{Precision Recall with collaborative filtering}
  The LDOS-CoMoDa dataset was split into training and test sets. The training data was initially passed through the collaborative filtering step. Each (movie, rating) pair in the list of generated recommendations is then compared with the movies and subsequent ratings in the test dataset. The comparisons with a $\pm$1 difference in rating are considered as a match. Using this metric, the precision for each user in the test dataset was calculated over the list of all recommendations, and was found to be in the range of 0.02 and 0.05. For the recall measure, the ratio of the list of matched ratings was compared with the total list of "good" movies. A "good" movie was considered to be one having an average rating of 3-5. Further, the F1 score was calculated based on the observed precision and recall values per user, and was low due to lower values of precision. The observed values for recall were significant compared to the precision measure. Fig~\ref{precrecallbasic} demonstrates the precision, recall and F1 score for different users in the test dataset.
  %For each user in the test dataset, one-third of the movies already rated are removed. 
-
-\subsubsection{Precision Recall with filtering on high Information Gain}
- The precision-recall and F1 scores for the recommendations, generated after filtering through contextual attributes with high information gain, were found to be lower than those with the simple recommendation process. Fig~\ref{precrecallig} shows the sample distribution over the test dataset. It was observed that addition of a proper subset of contextual attributes was increasing the recommendation accuracy. A possible explanation would be that the data collection for contextual attributes associated with each movie rating was incomplete. It was observed that for most rated movies, the context attributes were set to a default value. Hence there was no proper distribution of data across all possible values for a given contextual feature.
-
-\subsubsection{}
  
-\begin{figure}[H]
+ \begin{figure}[H]
 \centering
 \includegraphics[height=2.5in, width=3.5in]{PrecRecallBasic.png}
 \caption{Precision Recall Metrics for simple recommendation}
 \label{precrecallbasic}
 \end{figure}
+
+\subsubsection{Precision Recall after Contextual Filtering}
+ The precision-recall and F1 scores for the recommendations, generated after filtering through contextual attributes with high information gain, were found to be lower than those with the simple recommendation process. Fig~\ref{precrecallig} shows the sample distribution over the test dataset. It was observed that addition of a proper subset of contextual attributes was increasing the recommendation accuracy. A possible explanation would be that the data collection for contextual attributes associated with each movie rating was incomplete. It was observed that for most rated movies, the context attributes were set to a default value. Hence there was no proper distribution of data across all possible values for a given contextual feature.
+
 
 \begin{figure}[H]
 \includegraphics[height=2.5in, width=3.5in]{PrecRecallIG.png}
@@ -317,7 +321,7 @@ F1 score = 2 * \frac{precision * recall}{precision + recall}
 \label{precrecallig}
 \end{figure}
 
-
+TODO: Precision recall curve for maximum, Number of recommended movies graph, 
 
 %The recommended movies are based on a rating margin of +1 and -1. This flexibility, though can reduce the recall slightly, removes the possibility of no recommendations being generated for a particular user and the provided context.
 
