@@ -1,0 +1,35 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Adomavicius \& Tuzhilin(2011)Adomavicius and
+  Tuzhilin]{adomavicius2011context}
+Adomavicius, Gediminas and Tuzhilin, Alexander.
+\newblock Context-aware recommender systems.
+\newblock In \emph{Recommender Systems Handbook}, pp.\  217--253. Springer,
+  2011.
+
+\bibitem[Ko{\v{s}}ir et~al.(2011)Ko{\v{s}}ir, Odic, Kunaver, Tkalcic, and
+  Tasic]{kovsir2011database}
+Ko{\v{s}}ir, Andrej, Odic, Ante, Kunaver, Matevz, Tkalcic, Marko, and Tasic,
+  Jurij~F.
+\newblock Database for contextual personalization.
+\newblock \emph{ELEKTROTEHNISKI VESTNIK}, 78\penalty0 (5):\penalty0 270--274,
+  2011.
+
+\bibitem[Melville et~al.(2002)Melville, Mooney, and
+  Nagarajan]{melville2002content}
+Melville, Prem, Mooney, Raymod~J, and Nagarajan, Ramadass.
+\newblock Content-boosted collaborative filtering for improved recommendations.
+\newblock 2002.
+
+\bibitem[Segaran(2008)]{segaran2008programming}
+Segaran, Toby.
+\newblock \emph{Programming collective intelligence: building smart web 2.0
+  applications}.
+\newblock O'Reilly Media, 2008.
+
+\end{thebibliography}

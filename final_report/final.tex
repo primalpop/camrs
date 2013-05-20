@@ -130,7 +130,7 @@ The effectiveness of various steps mentioned above was evaluated using the follo
 \end{itemize}
 
 
-This model will take a part of the dataset for training, and predict the recommendation (ranked based on rating) for the given test instance using cross-validation. The next phase will include establishing a correlation between the contextual attributes and the rest of the features for finding a trend for a contextually richer movie recommendation. The final step will be to filter the instances based on the context attributes and provide a recommendation. 
+This model will take a fraction of the dataset for training, and predict the recommendation (a ranked list based on ratings) for a given test instance using cross-validation. The next phase will include establishing a correlation between the contextual attributes and the rest of the features for finding a trend for a contextually richer movie recommendation. The final step will be to filter the instances based on the context attributes and provide a recommendation. 
 
 \begin{figure}[H]
 \centering
@@ -196,13 +196,15 @@ A User Profile consists of contextual attributes which are used for contextual f
 
 \subsubsection{Feature Selection}
 
-The first method was used to find out existence of important contextual features for the entire dataset. These features might help in boosting the performance of recommender systems. Forest of trees were used to evaluate the importance of features in the dataset. Tree-based estimators from the sklearn.tree module and forest of trees in the sklearn.ensemble module were used for the purpose. Univariate chi2 feature selection was also tried for the purpose but didn't give *interpretable* results. 
+We experimented on alternative techniques on characterizing profiles based on user similarities in terms of the contextual attributes. The first method was used to find out existence of important contextual features, to boost the performance of CAMRS. Forest of trees were used to evaluate the importance of features in the dataset. Tree-based estimators from the sklearn.tree module and forest of trees in the sklearn.ensemble module were used for the purpose. Univariate chi-square feature selection was also tried for the purpose. However, chi-square selection was unable to select features, and hence was discarded.
 
 \subsubsection{Information Gain}
 
 Information gain helps bias the decision making process by considering features that are relevant. Information gain is particularly effective, since the attributes in LDOS-CoMoDa are primarily nominal and take up a finite (small) set of values. The ratings given by each user were considered in isolation for computing the information gain of each attribute. Compared to the first method, this method a tailored set of attributes specific to each user. We built a user profile for every user in the dataset, based on the context attributes with the highest information gain. This calculation was done on the basis of the ratings given for a movie watched by the user, under the context features described for the same.
 
 \subsubsection{Clustering}
+
+ We used the K-means clustering algorithm to find out the clusters of user profiles. The algorithm was based on finding similarity between instances based on the Euclidean distance between contextual attributes that are associated with a profile. The clustering algorithm was evaluated for five clusters, based on the five possible ratings. Each cluster was observed to show distinct features which may have influenced the user ratings.
 
 \subsection{Contextual filtering}
 In this module, we refine the results provided by the Collaborative Filtering system, based on the filtered context features from the previous step. The user enters a set of attributes describing his context which would act as the filters. Contextual Filter procedure takes the following as input.
@@ -273,12 +275,46 @@ Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This 
 \end{table}
 
 \subsection{Precision/Recall of Contextual Filtering}
-An effective method to evaluate a recommender's suggestions, is to grade the quality of its estimated preference values. This involves measuring how closely the estimated preferences match the actual preferences of the user. In order to evaluate the accuracy of our recommender engine , we use a precision-recall measure where the predicted movie recommendations, and their respective ratings, are compared with the removed ratings. The precision metric finds the proportion of relevant movies from the list of (movie, rating) recommendation pairs. The recall measures the proportion of movies that were recommended from the total list of all possible movies. 
+An effective method to evaluate a recommender's suggestions, is to grade the quality of its estimated preference values. This involves measuring how closely the estimated preferences match the actual preferences of the user. In order to evaluate the accuracy of our recommender engine , we use a precision-recall measure where the predicted movie recommendations, and their respective ratings, are compared with the removed ratings. The precision metric finds the proportion of relevant movies from the list of (movie, rating) recommendation pairs. 
+\begin{equation}
+precision = \frac{\text{relevant recommendations}} {\text{total recommendations}}
+\end{equation} 
+The recall measures the proportion of movies that were recommended from the total list of all possible movies.
+\begin{equation}
+recall = \frac{\text{relevant recommendations}}{\text{total relevant movies}}
+\end{equation}
+ The F1 score is another metric to evaluate accuracy.  It considers both precision and recall measures of a test to compute the score. In recommendation systems, it is considered a single value obtained combining both the precision and recall measures and indicates an overall utility of the recommendation list.\foonote{http://aimotion.blogspot.com/2011/05/evaluating-recommender-systems.html}
+\begin{equation}
+F1 score = 2 * \frac{precision * recall}{precision + recall}
+\end{equation}
+
+ We calculated the precision, recall and the F1 score metrics for the following 
+\begin{enumerate} 
+\item Results based on the simple recommendation system
+\item Results filtered by the attributes selected through Information Gain
+\item The average feature values for each rating-based cluster through K-Means clustering
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=2.5in, width=4in]{PrecRecallBasic.png}
+\caption{Precision Recall Metrics for simple recommendation}
+\label{precrecallbasic}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=2.5in, width=4in]{PrecRecallIG.png}
+\caption{Precision Recall Metrics for recommendation filtered on features with large Information Gain}
+\label{precrecallig}
+\end{figure}
+
+As seen in Fig~\ref{precrecallbasic} and Fig~\ref{precrecallig}, the recall for different evaluations was significant, compared to the precision metric for the same.
 
 %The recommended movies are based on a rating margin of +1 and -1. This flexibility, though can reduce the recall slightly, removes the possibility of no recommendations being generated for a particular user and the provided context.
 
 \subsection{Clustering based on User profiles}
- We experimented on alternative techniques on characterizing profiles based on user similarities in terms of the contextual attributes. We used the K-means clustering algorithm to find out the clusters of user profiles based on the Euclidean distance between contextual attributes that are associated with a profile. The clustering algorithm was evaluated for five clusters, based on five different ratings. Table~\ref{kmeans} gives a summary of the clustering experiment, and gives the average of the values for the contextual features across the entire dataset. Further, it also gives the average value for attributes, characterizing the choice of a particular rating by a user. It was observed that users opting for their dominant emotion to be Happy, rated the movies with a higher rating (4 or 5). Also, users gave higher ratings when they watched movies on a working day, with a partner, during the winter season and during cloudy weather. The age group which gave lower ratings (1) were mostly females in their '30s. The K-means clustering thus gave comprehensive statistics on the distribution of data.
+ Table~\ref{kmeans} gives a summary of the clustering experiment, and gives the average of the values for the contextual features across the entire dataset. Further, it also gives the average value for attributes, characterizing the choice of a particular rating by a user. It was observed that users opting for their dominant emotion to be Happy, rated the movies with a higher rating (4 or 5). Also, users gave higher ratings when they watched movies on a working day, with a partner, during the winter season and during cloudy weather. The age group which gave lower ratings (1) were mostly females in their '30s. The K-means clustering thus gave comprehensive statistics on the distribution of data.
 
 \begin{table}[t]
 \caption{K-Means clustering on the LDOS-CoMoDa dataset}

@@ -1,7 +1,10 @@
+from __future__ import print_function
+
 import pandas as pd
 import numpy as np
 import math
 import pdb
+
 
 #For indexing the movie rating from the user dictionary
 RATING = 0
@@ -82,15 +85,17 @@ def main(user=193, filters=None):
 	train_udb, test_udb = remove_for_testing(udb, user)
 	recs =  get_recommendations(train_udb, user)
 	precision_train, recall_train = precision(user, recs, test_udb), recall(user, recs, test_udb)
-	print "precision before: ", precision_train,
-	print "recall before:", recall_train, 
-	print "f1 score: ", f1score(precision_train, recall_train)
+	with open("results.txt", "a") as myfile:
+		myfile.write(precision_train),
+		myfile.write(recall_train), 
+		myfile.write(f1score(precision_train, recall_train))
 	filters = [(8, 2), (5, 1), (9, 2), (10, 2), (6, 1), (16, 1), (13, 1), (7, 1), (14, 1), (12, 1), (11, 1)]
 	filter_recs = contextual_filter(udb, userprofile, user, recs, filters)
 	precision_test, recall_test = precision(user, filter_recs, test_udb), recall(user, filter_recs, test_udb)
-	print "precision after: ", precision_test,  
-	print "recall after:", recall_test, 
-	print "f1 score after: ", f1score(precision_test, recall_test)
+	with open("results.txt", "a") as myfile:
+		myfile.write(precision_test),  
+		myfile.write(recall_test), 
+		myfile.write(f1score(precision_test, recall_test))
 
 # Returns a distance-based similarity score for user1 and user2
 def sim_euclidean(udb, user1, user2):
