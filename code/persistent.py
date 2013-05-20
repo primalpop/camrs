@@ -1,10 +1,8 @@
-from __future__ import print_function
-
 import pandas as pd
-import numpy as np
+import numpy
 import math
 import pdb
-
+from collections import Counter
 
 #For indexing the movie rating from the user dictionary
 RATING = 0
@@ -30,7 +28,7 @@ def shuffle(df):
 	#Randomizes the dataframe
 	#Reference: http://stackoverflow.com/questions/13395725/efficient-way-of-doing-permutations-with-pandas-over-a-large-dataframe
 	ind = df.index
-	sampler = np.random.permutation(df.shape[0])
+	sampler = numpy.random.permutation(df.shape[0])
 	new_vals = df.take(sampler).values
 	df = pd.DataFrame(new_vals, index=ind)
 	return df            
@@ -62,7 +60,7 @@ def remove_for_testing(udb, user):
 	#print len(train_udb[user]), len(test_udb[user]), len(udb[user])
 	return train_udb, test_udb
 	
-def main(user=193, filters=None):
+def main(user=15, filters=None):
 	df = pd.read_csv('../datasets/LDOS-CoMoDa.csv', na_values=['-1'])
 	userprofile = buildUserProfile() 
 	#Replacement of missing values using the mean of the available values.
@@ -85,17 +83,11 @@ def main(user=193, filters=None):
 	train_udb, test_udb = remove_for_testing(udb, user)
 	recs =  get_recommendations(train_udb, user)
 	precision_train, recall_train = precision(user, recs, test_udb), recall(user, recs, test_udb)
-	with open("results.txt", "a") as myfile:
-		myfile.write(precision_train),
-		myfile.write(recall_train), 
-		myfile.write(f1score(precision_train, recall_train))
+	print precision_train, recall_train, len(recs)
 	filters = [(8, 2), (5, 1), (9, 2), (10, 2), (6, 1), (16, 1), (13, 1), (7, 1), (14, 1), (12, 1), (11, 1)]
 	filter_recs = contextual_filter(udb, userprofile, user, recs, filters)
 	precision_test, recall_test = precision(user, filter_recs, test_udb), recall(user, filter_recs, test_udb)
-	with open("results.txt", "a") as myfile:
-		myfile.write(precision_test),  
-		myfile.write(recall_test), 
-		myfile.write(f1score(precision_test, recall_test))
+	print precision_test, recall_test, len(filter_recs)
 
 # Returns a distance-based similarity score for user1 and user2
 def sim_euclidean(udb, user1, user2):
@@ -181,7 +173,7 @@ def contextual_filter(udb, profiles, user, recommendations, filters):
 		if rating >= OPTIMUM:
 			for context, value in filters:
 				if context in profiles[user]:
-					avg = round(findAvgContext(movie, context, udb))	
+					avg = float(findMaxContext(movie, context, udb))
 					if avg == value and (rating, movie) not in filtered_recs:
 						filtered_recs.append((rating, movie))
 	return filtered_recs				
@@ -194,7 +186,19 @@ def findAvgContext(movie, context, udb):
 		if udb[user][movie][context] != {} and udb[user][movie][RATING] >= OPTIMUM:
 			sumOfContext += udb[user][movie][context]
 			count += 1		
-	return sumOfContext/count			
+	return sumOfContext/count	
+
+def findMaxContext(movie, context, udb):
+	ListContext = []
+	for user in udb:
+		if udb[user][movie][RATING] >= OPTIMUM:
+			value = udb[user][movie][context]
+			if type(value) == numpy.float64: 
+				ListContext.append(udb[user][movie][context])
+	if len(ListContext) > 1: 
+		m = max(k for k,v in Counter(ListContext).items()) 				
+	else: m = -1
+	return m		
 
 def precision(user, recommendations, udb):
 	"""
@@ -206,13 +210,12 @@ def precision(user, recommendations, udb):
 	tp = 0
 	for (x, y) in recommendations:
 		for movie in udb[user].keys():
-			if movie == y and (round(x) - 1 <= udb[user][movie][RATING] <= round(x) + 1): #TODO: + - 2 for rating value
+			if movie == y and (round(x) - 1 <= udb[user][movie][RATING] <= round(x) + 1):
 				tp += 1
 	#print tp, all				
 	return tp/float(all)
 
 def recall(user, recommendations, udb):
-	#pdb.set_trace()
 	tp = 0
 	good_movies = 0
 	for movie in udb[user].keys():
