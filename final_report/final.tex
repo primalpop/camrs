@@ -196,7 +196,7 @@ A User Profile consists of contextual attributes which are used for contextual f
 
 \subsubsection{Feature Selection}
 
-We experimented on alternative techniques on characterizing profiles based on user similarities in terms of the contextual attributes. The first method was used to find out existence of important contextual features, to boost the performance of CAMRS. Forest of trees were used to evaluate the importance of features in the dataset. Tree-based estimators from the sklearn.tree module and forest of trees in the sklearn.ensemble module were used for the purpose. Univariate chi-square feature selection was also tried for the purpose. However, chi-square selection was unable to select features, and hence was discarded.
+We experimented on alternative techniques on characterizing profiles based on user similarities in terms of the contextual attributes. The first method was used to find out existence of important contextual features, to boost the performance of CAMRS. Forest of trees were used to evaluate the importance of features in the dataset. Tree-based estimators from the sklearn.tree module and forest of trees in the sklearn.ensemble module were used for the purpose. Univariate chi-square feature selection was also tried for the purpose. However, chi-square selection did not return useful results.
 
 \subsubsection{Information Gain}
 
@@ -291,25 +291,33 @@ F1 score = 2 * \frac{precision * recall}{precision + recall}
  We calculated the precision, recall and the F1 score metrics for the following 
 \begin{enumerate} 
 \item Results based on the simple recommendation system
-\item Results filtered by the attributes selected through Information Gain
-\item The average feature values for each rating-based cluster through Extra Tree classifier
+\item Results filtered by features selected with high Information Gain
+\item Results filtered by features selected through forest of trees classification approach
 \end{enumerate}
 
+\subsubsection{Precision Recall with collaborative filtering}
+ The LDOS-CoMoDa dataset was split into training and test sets. The training data was initially passed through the collaborative filtering step. Each (movie, rating) pair in the list of generated recommendations is then compared with the movies and subsequent ratings in the test dataset. The comparisons with a $\pm$1 difference in rating are considered as a match. Using this metric, the precision for each user in the test dataset was calculated over the list of all recommendations, and was found to be in the range of 0.02 and 0.05. For the recall measure, the ratio of the list of matched ratings was compared with the total list of "good" movies. A "good" movie was considered to be one having an average rating of 3-5. Further, the F1 score was calculated based on the observed precision and recall values per user, and was low due to lower values of precision. The observed values for recall were significant compared to the precision measure. Fig~\ref{precrecallbasic} demonstrates the precision, recall and F1 score for different users in the test dataset.
+ %For each user in the test dataset, one-third of the movies already rated are removed. 
+
+\subsubsection{Precision Recall with filtering on high Information Gain}
+ The precision-recall and F1 scores for the recommendations, generated after filtering through contextual attributes with high information gain, were found to be lower than those with the simple recommendation process. Fig~\ref{precrecallig} shows the sample distribution over the test dataset. It was observed that addition of a proper subset of contextual attributes was increasing the recommendation accuracy. A possible explanation would be that the data collection for contextual attributes associated with each movie rating was incomplete. It was observed that for most rated movies, the context attributes were set to a default value. Hence there was no proper distribution of data across all possible values for a given contextual feature.
+
+\subsubsection{}
+ 
 \begin{figure}[H]
 \centering
-\includegraphics[height=2.5in, width=4in]{PrecRecallBasic.png}
+\includegraphics[height=2.5in, width=3.5in]{PrecRecallBasic.png}
 \caption{Precision Recall Metrics for simple recommendation}
 \label{precrecallbasic}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[height=2.5in, width=4in]{PrecRecallIG.png}
+\includegraphics[height=2.5in, width=3.5in]{PrecRecallIG.png}
 \caption{Precision Recall Metrics for recommendation filtered on features with large Information Gain}
 \label{precrecallig}
 \end{figure}
 
-As seen in Fig~\ref{precrecallbasic} and Fig~\ref{precrecallig}, the recall for different evaluations was significant, compared to the precision metric for the same.
+
 
 %The recommended movies are based on a rating margin of +1 and -1. This flexibility, though can reduce the recall slightly, removes the possibility of no recommendations being generated for a particular user and the provided context.
 
@@ -394,15 +402,15 @@ Incorporating such rich set of contextual features helps personalize a recommend
 \subsection{Dataset Analysis}
 
 \begin{figure}[H]
-\centering
-\includegraphics[height=2.5in, width=4in]{ratingsperuser.png}
+
+\includegraphics[height=2.5in, width=3.5in]{ratingsperuser.png}
 \caption{Ratings per user}
 \label{ruser}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[height=2.5in, width=4in]{ratungspermovie.png}
+
+\includegraphics[height=2.5in, width=3.5in]{ratungspermovie.png}
 \caption{Ratings per item}
 \label{ritem}
 \end{figure}
