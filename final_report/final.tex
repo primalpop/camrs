@@ -109,7 +109,6 @@ Further, they discuss the possibilities of combining several context- aware reco
 
 \section{Proposed method}
 
-
 We followed the following steps in building the Context-Aware Movie Recommender(CAMR) system
 
 \begin{enumerate}
@@ -238,15 +237,20 @@ In this module, we refine the results provided by the Collaborative Filtering sy
 
 The $findAvgContext$ procedure finds the average context of a specific movie when rating is high over all users. If this context is equal to the context entered by the user, this is added to the filtered recommendations.
 
-\section{Intuition}
+%\section{Intuition}
 
 \section{Experiments}
 Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This information and further demographics on the dataset will be calculated. These demographics will help identify the correlation not only between the contextual attributes and the movie's ratings, but also include user profiles. For example, it was observed that when the dominant mood was "Happy", the overall ratings, regardless of the other attributes, were high (ranging from 4 to 5). This sets up a correlation, of the contextual attribute modeling the mood of the user, to be a significant parameter for recommending a movie with higher rating. The number of ratings per user and per item have also been analyzed and are added to the Appendix.
 
 \begin{table} [H]
 	\caption{LDOS - CoMoDa dataset statistic}
-	\centering        
-    \begin{tabular}{l|l}
+	\vskip 0.15in      
+	\begin{center}
+	\begin{small}
+	\begin{sc}
+    \begin{tabular}{lcccr}
+	\hline
+	\abovespace\belowspace
     \hline
     Number of users            & 121 \\
     Number of items            & 1233  \\
@@ -263,29 +267,48 @@ Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This 
 \subsection{Precision/Recall of Contextual Filtering}
 An effective method to evaluate a recommender's suggestions, is to grade the quality of its estimated preference values. This involves measuring how closely the estimated preferences match the actual preferences of the user. In order to evaluate the accuracy of our recommender engine , we use a precision-recall measure where the predicted movie recommendations, and their respective ratings, are compared with the removed ratings. The precision metric finds the proportion of relevant movies from the list of (movie, rating) recommendation pairs. The recall measures the proportion of movies that were recommended from the total list of all possible movies. 
 
-The recommended movies are based on a rating margin of +1 and -1. This flexibility, though can reduce the recall slightly, removes the possibility of no recommendations being generated for a particular user and the provided context.
+%The recommended movies are based on a rating margin of +1 and -1. This flexibility, though can reduce the recall slightly, removes the possibility of no recommendations being generated for a particular user and the provided context.
 
 \subsection{Clustering based on User profiles}
- We experimented on alternative techniques on characterizing 
+ We experimented on alternative techniques on characterizing profiles based on user similarities in terms of the contextual attributes. We used the K-means clustering algorithm to find out the clusters of user profiles based on the Euclidean distance between contextual attributes that are associated with a profile. The clustering algorithm was 
 
-Attribute      Full Data          0          1          2          3          4
-                  (2296)      (267)      (322)      (721)      (596)      (390)
-===============================================================================
-age               28.418    31.7963    25.6773    29.6492    28.3657    26.1719
-sex                 Male     Female       Male       Male     Female       Male
-country               UK         UK    Denmark         UK         UK    Denmark
-time             Evening      Night    Evening    Evening    Evening      Night
-daytype          Weekend    Weekend    Working    Working    Working    Weekend
-season            Winter     Autumn     Autumn     Autumn     Winter     Winter
-location            Home       Home       Home       Home       Home       Home
-weather            Sunny      Rainy      Sunny      Sunny     Cloudy     Cloudy
-social             Alone      Alone      Alone    Partner      Alone    Partner
-endEmo             Happy    Neutral    Neutral      Happy    Neutral    Neutral
-dominantEmo      Neutral    Neutral    Neutral      Happy    Neutral    Neutral
-mood            Positive    Neutral    Neutral   Positive    Neutral   Positive
-physical         Healthy    Healthy    Healthy    Healthy    Healthy    Healthy
-decision        Decision   Decision      Given   Decision   Decision      Given
-interaction        First      First      First      First      First      First
+\begin{table}[t]
+\caption{K-Means clustering on the LDOS-CoMoDa dataset}
+\label{kmeans}
+\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{lcccr}
+\hline
+\abovespace\belowspace
+ & Naive & Flexible & Better? \\
+Attribute & Full Data (2296) & 0 (267) & 1 (322) & 2 (721) & 3 (596) & 4 (390) \\
+\hline
+\abovespace
+age             &  28.418  &  31.7963  &  25.6773  &  29.6492  &  28.3657  &  26.1719 \\
+sex             &    Male  &  Female   &    Male   &    Male   &   Female  &    Male \\
+country         &      UK  &       UK  &  Denmark  &      UK   &      UK   & Denmark \\
+time            & Evening  &    Night  &  Evening  &  Evening  &  Evening  &    Night \\
+daytype         & Weekend  &  Weekend  &  Working  &  Working  &  Working  &  Weekend \\
+season          &  Winter  &   Autumn  &   Autumn  &   Autumn  &   Winter  &   Winter \\
+location        &    Home  &     Home  &     Home  &     Home  &     Home  &     Home \\
+weather         &   Sunny  &    Rainy  &    Sunny  &    Sunny  &   Cloudy  &   Cloudy \\
+social          &   Alone  &    Alone  &    Alone  &  Partner  &    Alone  &  Partner \\
+endEmo          &   Happy  &  Neutral  &  Neutral  &    Happy  &  Neutral  &  Neutral \\
+dominantEmo     & Neutral  &  Neutral  &  Neutral  &    Happy  &  Neutral  &  Neutral \\
+mood            &Positive  &  Neutral  &  Neutral  & Positive  &  Neutral  & Positive \\
+physical        & Healthy  & Healthy   & Healthy   & Healthy   & Healthy   & Healthy \\
+decision        &Decision  & Decision  &    Given  & Decision  & Decision  &    Given \\
+\belowspace
+interaction     &   First  &    First  &    First  &    First  &    First  &    First \\
+\hline
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}
 
 Cluster 0 <-- 1
 Cluster 1 <-- 2
