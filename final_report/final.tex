@@ -243,7 +243,8 @@ The $findAvgContext$ procedure finds the average context of a specific movie whe
 Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This information and further demographics on the dataset will be calculated. These demographics will help identify the correlation not only between the contextual attributes and the movie's ratings, but also include user profiles. For example, it was observed that when the dominant mood was "Happy", the overall ratings, regardless of the other attributes, were high (ranging from 4 to 5). This sets up a correlation, of the contextual attribute modeling the mood of the user, to be a significant parameter for recommending a movie with higher rating. The number of ratings per user and per item have also been analyzed and are added to the Appendix.
 
 \begin{table} [H]
-	\caption{LDOS - CoMoDa dataset statistic}
+	\caption{LDOS - CoMoDa dataset statistics}
+	\label{ldos}
 	\vskip 0.15in      
 	\begin{center}
 	\begin{small}
@@ -251,7 +252,9 @@ Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This 
     \begin{tabular}{lcccr}
 	\hline
 	\abovespace\belowspace
+	LDOS-CoMoDa statistics\\
     \hline
+    \abovespace
     Number of users            & 121 \\
     Number of items            & 1233  \\
     Number of ratings          & 2294  \\
@@ -259,9 +262,14 @@ Table~\ref{ldos} demonstrates the statistics of the LDOS - CoMoDa dataset. This 
     Number of countries        & 6  \\
     Number of cities           & 18  \\
     Max ratings of single user & 220  \\
-    Min ratings of single user & 1  \\
-    \end{tabular}
-    \label{ldos}
+    \belowspace
+	Min ratings of single user & 1  \\
+	\hline
+	\end{tabular}
+	\end{sc}
+	\end{small}
+	\end{center}
+	\vskip -0.1in
 \end{table}
 
 \subsection{Precision/Recall of Contextual Filtering}
@@ -270,7 +278,7 @@ An effective method to evaluate a recommender's suggestions, is to grade the qua
 %The recommended movies are based on a rating margin of +1 and -1. This flexibility, though can reduce the recall slightly, removes the possibility of no recommendations being generated for a particular user and the provided context.
 
 \subsection{Clustering based on User profiles}
- We experimented on alternative techniques on characterizing profiles based on user similarities in terms of the contextual attributes. We used the K-means clustering algorithm to find out the clusters of user profiles based on the Euclidean distance between contextual attributes that are associated with a profile. The clustering algorithm was 
+ We experimented on alternative techniques on characterizing profiles based on user similarities in terms of the contextual attributes. We used the K-means clustering algorithm to find out the clusters of user profiles based on the Euclidean distance between contextual attributes that are associated with a profile. The clustering algorithm was evaluated for five clusters, based on five different ratings. Table~\ref{kmeans} gives a summary of the clustering experiment, and gives the average of the values for the contextual features across the entire dataset. Further, it also gives the average value for attributes, characterizing the choice of a particular rating by a user. It was observed that users opting for their dominant emotion to be Happy, rated the movies with a higher rating (4 or 5). Also, users gave higher ratings when they watched movies on a working day, with a partner, during the winter season and during cloudy weather. The age group which gave lower ratings (1) were mostly females in their '30s. The K-means clustering thus gave comprehensive statistics on the distribution of data.
 
 \begin{table}[t]
 \caption{K-Means clustering on the LDOS-CoMoDa dataset}
@@ -282,26 +290,25 @@ An effective method to evaluate a recommender's suggestions, is to grade the qua
 \begin{tabular}{lcccr}
 \hline
 \abovespace\belowspace
- & Naive & Flexible & Better? \\
-Attribute & Full Data (2296) & 0 (267) & 1 (322) & 2 (721) & 3 (596) & 4 (390) \\
+Attribute & Full Data (2296) & Rating 1(267) & Rating 2(322) & Rating 5(721) & Rating 3(596) &  Rating 4(390) \\
 \hline
 \abovespace
-age             &  28.418  &  31.7963  &  25.6773  &  29.6492  &  28.3657  &  26.1719 \\
-sex             &    Male  &  Female   &    Male   &    Male   &   Female  &    Male \\
-country         &      UK  &       UK  &  Denmark  &      UK   &      UK   & Denmark \\
-time            & Evening  &    Night  &  Evening  &  Evening  &  Evening  &    Night \\
-daytype         & Weekend  &  Weekend  &  Working  &  Working  &  Working  &  Weekend \\
-season          &  Winter  &   Autumn  &   Autumn  &   Autumn  &   Winter  &   Winter \\
-location        &    Home  &     Home  &     Home  &     Home  &     Home  &     Home \\
-weather         &   Sunny  &    Rainy  &    Sunny  &    Sunny  &   Cloudy  &   Cloudy \\
-social          &   Alone  &    Alone  &    Alone  &  Partner  &    Alone  &  Partner \\
-endEmo          &   Happy  &  Neutral  &  Neutral  &    Happy  &  Neutral  &  Neutral \\
-dominantEmo     & Neutral  &  Neutral  &  Neutral  &    Happy  &  Neutral  &  Neutral \\
-mood            &Positive  &  Neutral  &  Neutral  & Positive  &  Neutral  & Positive \\
-physical        & Healthy  & Healthy   & Healthy   & Healthy   & Healthy   & Healthy \\
-decision        &Decision  & Decision  &    Given  & Decision  & Decision  &    Given \\
+age         &  28.418  & 31.7963  & 25.6773 & 29.6492  & 28.3657  & 26.1719 \\
+sex         &    Male  & Female   & Male    & Male     & Female   & Male    \\
+country     &      UK  & UK       & Denmark & UK       & UK       & Denmark \\
+time        & Evening  & Night    & Evening & Evening  & Evening  & Night   \\
+daytype     & Weekend  & Weekend  & Weekend & Working  & Working  & Working \\
+season      &  Winter  & Autumn   & Autumn  & Autumn   & Winter   & Winter  \\
+location    &    Home  & Home     & Home    & Home     & Home     & Home       \\
+weather     &   Sunny  & Rainy    & Sunny   & Sunny    & Cloudy   & Cloudy     \\
+social      &   Alone  & Alone    & Alone   & Partner  & Partner   & Partner    \\
+endEmo      &   Happy  & Neutral  & Neutral & Happy    & Happy  & Happy    \\
+dominantEmo & Neutral  & Disgusted & Neutral & Neutral & Happy    & Happy    \\
+mood        & Positive & Neutral  & Neutral & Positive & Neutral  & Positive   \\
+physical    & Healthy  & Ill  & Ill & Healthy  & Healthy  & Healthy    \\
+decision    & Decision & Decision & Given   & Decision & Decision & Given      \\
 \belowspace
-interaction     &   First  &    First  &    First  &    First  &    First  &    First \\
+interaction & First    & First    & First   & First    & First    & First      \\
 \hline
 \end{tabular}
 \end{sc}
@@ -309,17 +316,6 @@ interaction     &   First  &    First  &    First  &    First  &    First  &    
 \end{center}
 \vskip -0.1in
 \end{table}
-
-Cluster 0 <-- 1
-Cluster 1 <-- 2
-Cluster 2 <-- 5
-Cluster 3 <-- 3
-Cluster 4 <-- 4
-
-
-\subsection{Clustering experiment} 
-Give statistics on the clustering - explain how it fared
-
 
 
 %\subsection{Implementation}
