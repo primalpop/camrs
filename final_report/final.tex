@@ -320,7 +320,6 @@ As expected, the precision and F1 scores for the recommendations, generated thro
 \label{precrecallig}
 \end{figure}
 
-
 %The recommended movies are based on a rating margin of +1 and -1. This flexibility, though can reduce the recall slightly, removes the possibility of no recommendations being generated for a particular user and the provided context.
 
 \subsection{Clustering based on User profiles}
@@ -375,16 +374,14 @@ interaction & First    & First    & First   & First    & First    & First      \
 
 \section{Conclusions}
 
-The CAMR system demonstrates the usage of contextual information as a relevant set of features, when providing movie recommendations. The system not only incorporates user tastes with similar profiles and ratings, but also filters the recommendations based on the current context of the active user. The recommendations are improved by understanding the correlation metrics between features that affect the outcome of the movie ratings, and thereby altering the filtering approach. We analyzed the importance of context on the recommendation outcome, using techniques such as Information Gain, feature selection through forest of trees classification, and clustering of instances based on similar user profiles. We calculated the influence of these approaches on the recommendation process using precision-recall metrics. Based on our observations, we also identified the shortcomings in the LDOS-CoMoDa dataset, which can be overcome with detailed data collection especially for contextual attributes. Incorporating such rich set of contextual features from the dataset looks promising, and with adequate (complete) data, we can provide significant value addition to a movie recommender system.
-
-This recommender system can be extended to incorporate machine learning techniques such as a support vector machine (SVM). The SVM can help classify the set of liked and disliked items of a user in different contexts as classes and constructs a separating hyperplane which maximizes the separation between them. It also remains to be seen if the contextual attributes affect the movie selection or movie rating or both.
+The CAMR system demonstrates the usage of contextual information as a relevant set of features, when providing movie recommendations. The system not only incorporates user tastes with similar profiles and ratings, but also filters the recommendations based on the current context of the active user. The recommendations are improved by understanding the correlation metrics between features that affect the outcome of the movie ratings, and thereby altering the filtering approach. We analyzed the importance of context on the recommendation outcome using Information Gain of attributes. From the precision-recall values of Collaborative Filtering and Contextual Filtering we identified that context indeed played an important role in the selection of movie. We also hope that in a system where contextual information can be collected automatically rather than through manual entry, the problem of contextual values being defaulted can be avoided. As of now we have reasons to believe that incorporating a rich set of contextual features from the dataset looks promising, and with adequate (complete) data, we can provide significant value addition to a movie recommender system.
  
 \section{Future Work}
 
 \begin{itemize}
-\item 
-\item
-\item 
+\item Sentiment Analysis of text from social networks(twitter, facebook) and message, call log can be used to identify the contextual attributes of the user before and after watching the movie
+\item By identifying groups of users who are related, values contextual attributes can be inferred for users from the same group
+\item Group recommendations filtered on the contextual values for the entire group
 \end{itemize}
 
 
